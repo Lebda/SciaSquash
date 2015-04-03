@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciaSquash.Web", "SciaSquash.Web\SciaSquash.Web.csproj", "{BB702051-1005-4866-8731-40CFE677DC4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SciaSquash.Model", "SciaSquash.Model\SciaSquash.Model.csproj", "{8DD1D06C-9D6D-4A65-994D-66D16A3B4AC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BB702051-1005-4866-8731-40CFE677DC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB702051-1005-4866-8731-40CFE677DC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB702051-1005-4866-8731-40CFE677DC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD1D06C-9D6D-4A65-994D-66D16A3B4AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD1D06C-9D6D-4A65-994D-66D16A3B4AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD1D06C-9D6D-4A65-994D-66D16A3B4AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD1D06C-9D6D-4A65-994D-66D16A3B4AC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
