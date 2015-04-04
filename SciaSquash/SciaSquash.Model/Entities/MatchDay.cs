@@ -8,6 +8,10 @@ namespace SciaSquash.Model.Entities
 {
     public class MatchDay
     {
+        public MatchDay()
+        {
+            Matches = new List<Match>();
+        }
         [HiddenInput(DisplayValue = false)]
         public int MatchDayID { get; set; }
         //

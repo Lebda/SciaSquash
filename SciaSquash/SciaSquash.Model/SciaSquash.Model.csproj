@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IMatchDayRepository.cs" />
+    <Compile Include="Abstract\IMatchRepository.cs" />
+    <Compile Include="Abstract\IPlayerReposiroty.cs" />
+    <Compile Include="Concrete\MatchDayRepository.cs" />
+    <Compile Include="Concrete\MatchRepository.cs" />
     <Compile Include="Concrete\PlayerReposiroty.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchDay.cs" />
@@ -58,9 +63,7 @@
     <Compile Include="Infrastructure\SciaSquashDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

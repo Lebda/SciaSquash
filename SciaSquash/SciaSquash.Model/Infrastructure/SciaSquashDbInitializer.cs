@@ -14,7 +14,7 @@ namespace SciaSquash.Model.Infrastructure
             {
             new Player{PlayerID=1, FirstName="Radim",LastName="Matela",NickName="Prdelnik"},
             new Player{PlayerID=2, FirstName="Mirek",LastName="Lunak",NickName="Orel"},
-            new Player{PlayerID=3, FirstName="Lebda",LastName="Matela",NickName="Lebda"},
+            new Player{PlayerID=3, FirstName="Jiri",LastName="Lebduska",NickName="Lebda"},
             new Player{PlayerID=4, FirstName="Tomas",LastName="Pail",NickName="Rybizek"},
             };
             players.ForEach(item => context.Players.Add(item));
