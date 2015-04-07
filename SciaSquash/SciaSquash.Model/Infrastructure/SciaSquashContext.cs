@@ -15,6 +15,13 @@ namespace SciaSquash.Model.Infrastructure
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            modelBuilder.Entity<Match>()
+                             .HasRequired(e => e.SecondPLayer)
+                             .WithMany(t => t.PlayerAsSecond)
+                             .HasForeignKey(e => e.FirstPlayerID)
+                             .WillCascadeOnDelete(false);
+
         }
     } 
 }

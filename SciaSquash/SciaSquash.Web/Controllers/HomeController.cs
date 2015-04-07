@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SciaSquash.Web.Controllers
@@ -22,7 +20,7 @@ namespace SciaSquash.Web.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Please do not hesitate to contact us :)";
 
             return View();
         }

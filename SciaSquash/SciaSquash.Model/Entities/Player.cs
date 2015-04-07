@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -25,10 +26,15 @@ namespace SciaSquash.Model.Entities
         [StringLength(256, MinimumLength = 3)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        // Navigation
+        //
         [Required(ErrorMessage = "Please enter your nickname from 3 to 10 chars")]
         [StringLength(10, MinimumLength = 3)]
         [Display(Name = "NickName")]
         public string NickName { get; set; }
+        // Navigation
+        [InverseProperty("FirstPlayer")]
+        public ICollection<Match> PlayerAsFirst { get; set; }
+        [InverseProperty("SecondPLayer")]
+        public ICollection<Match> PlayerAsSecond { get; set; }
     }
 }

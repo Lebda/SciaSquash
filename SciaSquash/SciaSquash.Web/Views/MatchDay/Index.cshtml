@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SciaSquash.Model.Entities.MatchDay>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MatchDayID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MatchDayID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MatchDayID })
+        </td>
+    </tr>
+}
+
+</table>

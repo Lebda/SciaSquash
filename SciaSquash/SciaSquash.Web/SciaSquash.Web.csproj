@@ -164,6 +164,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MatchController.cs" />
+    <Compile Include="Controllers\MatchDayController.cs" />
     <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -178,6 +180,11 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\LebsoftLogo_128.png" />
+    <Content Include="Content\Images\LebsoftLogo_16.png" />
+    <Content Include="Content\Images\LebsoftLogo_256.png" />
+    <Content Include="Content\Images\LebsoftLogo_32.png" />
+    <Content Include="Content\Images\LebsoftLogo_64.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -236,6 +243,16 @@
     <Content Include="Views\Player\Details.cshtml" />
     <Content Include="Views\Player\Edit.cshtml" />
     <Content Include="Views\Player\Index.cshtml" />
+    <Content Include="Views\MatchDay\Create.cshtml" />
+    <Content Include="Views\MatchDay\Delete.cshtml" />
+    <Content Include="Views\MatchDay\Details.cshtml" />
+    <Content Include="Views\MatchDay\Edit.cshtml" />
+    <Content Include="Views\MatchDay\Index.cshtml" />
+    <Content Include="Views\Match\Create.cshtml" />
+    <Content Include="Views\Match\Delete.cshtml" />
+    <Content Include="Views\Match\Details.cshtml" />
+    <Content Include="Views\Match\Edit.cshtml" />
+    <Content Include="Views\Match\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
