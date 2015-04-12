@@ -215,3 +215,12 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 *.dll
+SciaSquash/SciaSquash.Model/bin/Debug/EFHelp.dll
+SciaSquash/SciaSquash.Model/bin/Debug/EFHelp.dll
+SciaSquash/SciaSquash.Model/bin/Debug/EFHelp.dll
+SciaSquash/SciaSquash.Model/bin/Debug/SciaSquash.Model.dll
+*.dll
+SciaSquash/SciaSquash.Web/obj/Debug/SciaSquash.Web.pdb
+*.dll
+SciaSquash/SciaSquash.Model/bin/Debug/SciaSquash.Model.dll
+SciaSquash/SciaSquash.Model/bin/Debug/SciaSquash.Model.pdb

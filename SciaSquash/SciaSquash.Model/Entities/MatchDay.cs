@@ -21,9 +21,4 @@ namespace SciaSquash.Model.Entities
         // Navigation
         public virtual ICollection<Match> Matches { get; set; }
     }
-
-    public class Mat
-    {
-
-    }
 }
