@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace SciaSquash.Model.Entities
 {
     public class MatchDay
-    {
+    { // Just test
         public MatchDay()
         {
             Matches = new List<Match>();
@@ -20,5 +20,10 @@ namespace SciaSquash.Model.Entities
         public DateTime MatchDate { get; set; }
         // Navigation
         public virtual ICollection<Match> Matches { get; set; }
+    }
+
+    public class Mat
+    {
+
     }
 }
