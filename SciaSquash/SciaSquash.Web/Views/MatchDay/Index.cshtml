@@ -9,25 +9,54 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MatchDate)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MatchDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MatchDayID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MatchDayID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MatchDayID })
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchDate)
+            </th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MatchDayID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MatchDayID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MatchDayID })
+            </td>
+        </tr>
+    </table>
+    <h5>Games played in match day</h5>
+    <table class="table">
+        <tr>
+            <th>
+                Home
+            </th>
+            <th>
+                Visitor
+            </th>
+            <th>
+                Score
+            </th>
+        </tr>
+        @foreach (var oneMatch in item.Matches)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => oneMatch.FirstPlayer.NickName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => oneMatch.SecondPlayer.NickName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => oneMatch.ScorePlayerFirst) : @Html.DisplayFor(modelItem => oneMatch.ScorePlayerSecond)
+                </td>
+            </tr>
+        }
+    </table>
 }
 
-</table>

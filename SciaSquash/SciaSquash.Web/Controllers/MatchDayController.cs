@@ -22,7 +22,8 @@ namespace SciaSquash.Web.Controllers
         // GET: MatchDay
         public ActionResult Index()
         {
-            return View(m_repo.SelectAll());
+            var test = m_repo.SelectAll();
+            return View(test);
         }
 
         // GET: MatchDay/Details/5

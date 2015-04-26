@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.FirstPlayerID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SecondPLayerID)
+            @Html.DisplayNameFor(model => model.SecondPlayerID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ScorePlayerFirst)
@@ -23,19 +23,19 @@
         <th>
             @Html.DisplayNameFor(model => model.ScorePlayerSecond)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.MatchDate)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstPlayerID)
+            @Html.DisplayFor(prdel => item.FirstPlayerID)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SecondPLayerID)
+            @Html.DisplayFor(modelItem => item.SecondPlayerID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ScorePlayerFirst)
@@ -43,9 +43,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.ScorePlayerSecond)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.MatchDate)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.MatchID }) |
             @Html.ActionLink("Details", "Details", new { id=item.MatchID }) |

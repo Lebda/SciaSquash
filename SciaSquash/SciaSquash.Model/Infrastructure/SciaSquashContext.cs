@@ -17,8 +17,8 @@ namespace SciaSquash.Model.Infrastructure
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Match>()
-                             .HasRequired(e => e.SecondPLayer)
-                             .WithMany(t => t.PlayerAsSecond)
+                             .HasRequired(e => e.SecondPlayer)
+                             .WithMany(t => t.SecondPlayers)
                              .HasForeignKey(e => e.FirstPlayerID)
                              .WillCascadeOnDelete(false);
 

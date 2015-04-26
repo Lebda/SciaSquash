@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -11,10 +10,11 @@ namespace SciaSquash.Model.Entities
     {
         public Player()
         {
-
+            FirstPlayers = new List<Match>();
+            SecondPlayers = new List<Match>();
         }
+
         [HiddenInput(DisplayValue = false)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PlayerID { get; set; }
         //
         [Required(ErrorMessage = "Please enter your first name")]
@@ -32,9 +32,9 @@ namespace SciaSquash.Model.Entities
         [Display(Name = "NickName")]
         public string NickName { get; set; }
         // Navigation
-        [InverseProperty("FirstPlayer")]
-        public ICollection<Match> PlayerAsFirst { get; set; }
-        [InverseProperty("SecondPLayer")]
-        public ICollection<Match> PlayerAsSecond { get; set; }
+        //[InverseProperty("FirstPlayer")]
+        public ICollection<Match> FirstPlayers { get; set; }
+        //[InverseProperty("SecondPlayer")]
+        public ICollection<Match> SecondPlayers { get; set; }
     }
 }

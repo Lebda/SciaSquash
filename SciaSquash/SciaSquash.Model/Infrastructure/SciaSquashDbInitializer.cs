@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SciaSquash.Model.Entities;
@@ -10,43 +9,36 @@ namespace SciaSquash.Model.Infrastructure
     {
         protected override void Seed(SciaSquashContext context)
         {
-            var players = new List<Player>
-            {
-            new Player{PlayerID=0, FirstName="Radim",LastName="Matela",NickName="Prdelnik"},
-            new Player{PlayerID=1, FirstName="Mirek",LastName="Lunak",NickName="Orel"},
-            new Player{PlayerID=2, FirstName="Jiri",LastName="Lebduska",NickName="Lebda"},
-            new Player{PlayerID=3, FirstName="Tomas",LastName="Pail",NickName="Rybizek"},
-            };
-            players.ForEach(item => context.Players.Add(item));
+            var radim = new Player { FirstName = "Radim", LastName = "Matela", NickName = "Prdelnik" };
+            context.Players.Add(radim);
             context.SaveChanges();
-
-            var matches = new List<Match>
-            {
-            new Match{FirstPlayerID=0, SecondPLayerID=1, ScorePlayerFirst=3, ScorePlayerSecond=2, MatchDate=DateTime.Parse("2015-03-31")/*, PlayerFirst=context.Players.Find(0), PlayerSecond=context.Players.Find(1)*/},
-            new Match{FirstPlayerID=0, SecondPLayerID=2, ScorePlayerFirst=4, ScorePlayerSecond=1, MatchDate=DateTime.Parse("2015-03-31")/*, PlayerFirst=context.Players.Find(0), PlayerSecond=context.Players.Find(2)*/},
-            new Match{FirstPlayerID=1, SecondPLayerID=2, ScorePlayerFirst=1, ScorePlayerSecond=4, MatchDate=DateTime.Parse("2015-03-31")/*, PlayerFirst=context.Players.Find(1), PlayerSecond=context.Players.Find(2)*/},
-            };
-            matches.ForEach(item => context.Matchs.Add(item));
+            var mirek = new Player { FirstName = "Mirek", LastName = "Lunak", NickName = "Orel" };
+            context.Players.Add(mirek);
             context.SaveChanges();
-
-            var matchDays = new List<MatchDay>
-            {
-                new MatchDay{MatchDate=DateTime.Parse("2015-03-31")},
-            };
-            foreach (var match in matches)
-            {
-                foreach (var matchDay in matchDays)
-                {
-                    if (matchDay.MatchDate == match.MatchDate)
-                    {
-                        matchDay.Matches.Add(match);
-                    }
-                }
-            }
-            matchDays.ForEach(item => context.MatchDays.Add(item));
+            var lebda = new Player { FirstName = "Jiri", LastName = "Lebduska", NickName = "Lebda" };
+            context.Players.Add(lebda);
             context.SaveChanges();
-
-            base.Seed(context);
+            var rybizek = new Player { FirstName = "Tomas", LastName = "Pail", NickName = "Rybizek" };
+            context.Players.Add(rybizek);
+            context.SaveChanges();
+            var testMatchDay = new MatchDay{MatchDate=DateTime.Parse("2015-03-31")};
+            context.MatchDays.Add(testMatchDay);
+            context.SaveChanges();
+            context.MatchDays.Add(new MatchDay { MatchDate = DateTime.Parse("2015-03-24") });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = mirek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 2, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 3, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = 2, ScorePlayerSecond = 3, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 2, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matchs.Add(new Match { FirstPlayerID = lebda.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 3, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
+            context.SaveChanges();  
+           // base.Seed(context);
         }
     }
 }
