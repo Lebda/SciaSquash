@@ -26,7 +26,10 @@ namespace SciaSquash.Model.Infrastructure
             context.SaveChanges();
             context.MatchDays.Add(new MatchDay { MatchDate = DateTime.Parse("2015-03-24") });
             context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = mirek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 2, MatchDayID = testMatchDay.MatchDayID });
+            var testMatch = new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = mirek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 2, MatchDayID = testMatchDay.MatchDayID };
+            context.Matchs.Add(testMatch);
+            context.SaveChanges();
+            testMatch.SecondPlayerID = lebda.PlayerID;
             context.SaveChanges();
             context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 3, MatchDayID = testMatchDay.MatchDayID });
             context.SaveChanges();

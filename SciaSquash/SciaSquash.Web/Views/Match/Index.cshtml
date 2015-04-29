@@ -32,10 +32,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(prdel => item.FirstPlayerID)
+            @Html.DisplayFor(prdel => item.FirstPlayer.NickName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SecondPlayerID)
+            @Html.DisplayFor(modelItem => item.SecondPlayer.NickName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ScorePlayerFirst)
