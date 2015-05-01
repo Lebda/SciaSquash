@@ -11,8 +11,8 @@ namespace SciaSquash.Model.Entities
     {
         public Player()
         {
-            FirstPlayers = new List<Match>();
-            SecondPlayers = new List<Match>();
+            PlayerAsFirst = new List<Match>();
+            PlayerAsSecond = new List<Match>();
         }
 
         public override string ToString()
@@ -20,8 +20,8 @@ namespace SciaSquash.Model.Entities
             return
                 "PlayerID: " + PlayerID.ToString() + "|" +
                 "NickName: " + NickName + "|" +
-                "FirstPlayers: " + FirstPlayers.Count().ToString() + "|" +
-                "SecondPlayers: " + SecondPlayers.Count().ToString();
+                "PlayerAsFirst: " + PlayerAsFirst.Count().ToString() + "|" +
+                "PlayerAsSecond: " + PlayerAsSecond.Count().ToString();
         }
 
         [HiddenInput(DisplayValue = false)]
@@ -43,8 +43,10 @@ namespace SciaSquash.Model.Entities
         public string NickName { get; set; }
         // Navigation
         [InverseProperty("FirstPlayer")]
-        public ICollection<Match> FirstPlayers { get; set; }
+        public ICollection<Match> PlayerAsFirst { get; set; }
         [InverseProperty("SecondPlayer")]
-        public ICollection<Match> SecondPlayers { get; set; }
+        public ICollection<Match> PlayerAsSecond { get; set; }
+        //[InverseProperty("ThirdPlayer")]
+        //public ICollection<Match> PlayerAsThird{ get; set; }
     }
 }

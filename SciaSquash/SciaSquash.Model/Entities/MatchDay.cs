@@ -15,7 +15,8 @@ namespace SciaSquash.Model.Entities
         [HiddenInput(DisplayValue = false)]
         public int MatchDayID { get; set; }
         //
-        [DataType(DataType.DateTime)]
+        [Display(Name = "Match date")]
+        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Date has to be set")]
         public DateTime MatchDate { get; set; }
         // Navigation

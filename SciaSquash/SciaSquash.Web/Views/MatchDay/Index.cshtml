@@ -12,51 +12,55 @@
 
 @foreach (var item in Model)
 {
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MatchDate)
-            </th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MatchDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MatchDayID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MatchDayID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MatchDayID })
-            </td>
-        </tr>
-    </table>
-    <h5>Games played in match day</h5>
-    <table class="table">
-        <tr>
-            <th>
-                Home
-            </th>
-            <th>
-                Visitor
-            </th>
-            <th>
-                Score
-            </th>
-        </tr>
-        @foreach (var oneMatch in item.Matches)
-        {
+    <div class="panel panel-primary">
+        <!-- Default panel contents -->
+        <div class="panel-heading">@Html.DisplayNameFor(model => model.MatchDate) @Html.DisplayFor(modelItem => item.MatchDate)</div>
+        <div class="panel-body">
+            Games played in match day <br/>
+            @Html.ActionLink("Create New", "Create", "Match", new { matchDayID = item.MatchDayID }, null)
+        </div>
+        <!-- Table -->
+        <table class="table table-bordered">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => oneMatch.FirstPlayer.NickName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => oneMatch.SecondPlayer.NickName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => oneMatch.ScorePlayerFirst) : @Html.DisplayFor(modelItem => oneMatch.ScorePlayerSecond)
-                </td>
+                <th>
+                    <h4>
+                        <span class="label label-primary"> First player </span>
+                    </h4>
+                </th>
+                <th>
+                    <h4>
+                        <span class="label label-primary"> Second player </span>
+                    </h4>
+                </th>
+                <th>
+                    <h4>
+                        <span class="label label-primary"> Score </span>
+                    </h4>
+                </th>
+                <th>
+                </th>
             </tr>
-        }
-    </table>
+            @foreach (var oneMatch in item.Matches)
+            {
+                <tr>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => oneMatch.FirstPlayer.NickName)</strong>
+                    </td>
+                    <td>
+                        <strong>@Html.DisplayFor(modelItem => oneMatch.SecondPlayer.NickName)</strong>
+                    </td>
+                    <td>
+                        <span class="badge">@Html.Encode(oneMatch.ScorePlayerFirst)</span>
+                        : <span class="badge">@Html.Encode(oneMatch.ScorePlayerSecond)</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Match", new { id = oneMatch.MatchID }, null) |
+                        @Html.ActionLink("Details", "Details", "Match", new { id = oneMatch.MatchID }, null) |
+                        @Html.ActionLink("Delete", "Delete", "Match", new { id = oneMatch.MatchID }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 }
 

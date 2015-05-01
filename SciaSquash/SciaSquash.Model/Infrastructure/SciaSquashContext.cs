@@ -17,16 +17,16 @@ namespace SciaSquash.Model.Infrastructure
 
             //modelBuilder.Entity<Match>()
             //            .HasRequired(a => a.FirstPlayer)
-            //            .WithMany(b => b.FirstPlayers);
+            //            .WithMany(b => b.PlayerAsFirst);
 
             //modelBuilder.Entity<Match>()
             //            .HasRequired(a => a.SecondPlayer)
-            //            .WithMany(b => b.SecondPlayers);
+            //            .WithMany(b => b.PlayerAsSecond);
 
             modelBuilder.Entity<Match>()
                         .HasRequired(e => e.SecondPlayer)
-                        .WithMany(t => t.SecondPlayers)
-                        .HasForeignKey(e => e.FirstPlayerID)
+                        .WithMany(t => t.PlayerAsSecond)
+                        .HasForeignKey(e => e.SecondPlayerID)
                         .WillCascadeOnDelete(false);
         }
     }

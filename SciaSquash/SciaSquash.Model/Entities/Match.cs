@@ -16,17 +16,18 @@ namespace SciaSquash.Model.Entities
         public override string ToString()
         {
             return
-                "MatchID: " + MatchID.ToString() + "|" +
-                "MatchDayID: " + MatchDayID.ToString() + "|" +
-                "FirstPlayerID: " + FirstPlayerID.ToString() + "|" +
-                "SecondPlayerID: " + SecondPlayerID.ToString() + "|" +
-                "ScorePlayerFirst: " + ScorePlayerFirst.ToString() + "|" +
-                "ScorePlayerSecond: " + ScorePlayerSecond.ToString() + "|" +
-                "FirstPlayer: " + ((FirstPlayer == null) ? ("Not set") : (FirstPlayer.NickName)) + "|" +
-                "SecondPlayer: " + ((SecondPlayer == null) ? ("Not set") : (SecondPlayer.NickName));
+                  "MatchID: " + MatchID.ToString() + "|" +
+                  "MatchDayID: " + MatchDayID.ToString() + "|" +
+                  "FirstPlayerID: " + FirstPlayerID.ToString() + "|" +
+                  "SecondPlayerID: " + SecondPlayerID.ToString() + "|" +
+                  "ScorePlayerFirst: " + ScorePlayerFirst.ToString() + "|" +
+                  "ScorePlayerSecond: " + ScorePlayerSecond.ToString() + "|" +
+                  "FirstPlayer: " + ((FirstPlayer == null) ? ("Not set") : (FirstPlayer.NickName)) + "|" +
+                  "SecondPlayer: " + ((SecondPlayer == null) ? ("Not set") : (SecondPlayer.NickName));
         }
         [HiddenInput(DisplayValue = false)]
         public int MatchID { get; set; }
+        [HiddenInput(DisplayValue = false)]
         public int MatchDayID { get; set; }
         //
         [Display(Name = "First player")]
@@ -47,11 +48,12 @@ namespace SciaSquash.Model.Entities
         public int ScorePlayerSecond { get; set; }
         // Navigation
         [ForeignKey("FirstPlayerID")]
-        [InverseProperty("FirstPlayers")]
+        [InverseProperty("PlayerAsFirst")]
         public virtual Player FirstPlayer { get; set; }
         [ForeignKey("SecondPlayerID")]
-        [InverseProperty("SecondPlayers")]
+        [InverseProperty("PlayerAsSecond")]
         public virtual Player SecondPlayer { get; set; }
+        [ForeignKey("MatchDayID")]
         public virtual MatchDay MatchDay { get; set; }
     }
 }
