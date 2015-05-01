@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -6,8 +7,20 @@ using System.Web.Mvc;
 
 namespace SciaSquash.Model.Entities
 {
-    public class Match
-    {
+    public class Match : IValidatableObject
+    { 
+        #region IValidatableObject		
+        public IEnumerable<ValidationResult> Validate(
+            ValidationContext validationContext)
+        {
+            if (FirstPlayerID == SecondPlayerID)
+            {
+                yield return new ValidationResult("First player and second player has to be different !",
+                    new[] { "FirstPlayerID", "SecondPlayerID" });
+            }
+        }
+        #endregion
+
         public Match()
         {
             ScorePlayerFirst = 0;
@@ -22,8 +35,8 @@ namespace SciaSquash.Model.Entities
                   "SecondPlayerID: " + SecondPlayerID.ToString() + "|" +
                   "ScorePlayerFirst: " + ScorePlayerFirst.ToString() + "|" +
                   "ScorePlayerSecond: " + ScorePlayerSecond.ToString() + "|" +
-                  "FirstPlayer: " + ((FirstPlayer == null) ? ("Not set") : (FirstPlayer.NickName)) + "|" +
-                  "SecondPlayer: " + ((SecondPlayer == null) ? ("Not set") : (SecondPlayer.NickName));
+                  "FirstPlayer: " + ((FirstPlayer == null) ? ("Navigation") : (FirstPlayer.NickName)) + "|" +
+                  "SecondPlayer: " + ((SecondPlayer == null) ? ("Navigation") : (SecondPlayer.NickName));
         }
         [HiddenInput(DisplayValue = false)]
         public int MatchID { get; set; }

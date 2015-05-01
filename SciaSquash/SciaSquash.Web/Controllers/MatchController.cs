@@ -7,13 +7,11 @@ using EFHelp.Concrete;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
 using SciaSquash.Model.Infrastructure;
-using SciaSquash.Web.ViewModels.Match;
 
 namespace SciaSquash.Web.Controllers
 {
     public class MatchController : ControllerHelper<Match>
     {
-        private SciaSquashContext db = new SciaSquashContext();
         public MatchController(IMatchRepository repo, IPlayerReposiroty playersRepo)
             : base(repo)
         {
@@ -21,6 +19,7 @@ namespace SciaSquash.Web.Controllers
         }
         
         #region MEMBERS
+        private SciaSquashContext db = new SciaSquashContext();
         private readonly IPlayerReposiroty m_playersRepo;
         #endregion
         
@@ -109,7 +108,18 @@ namespace SciaSquash.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
+        #region PROTECTED
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                m_playersRepo.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+        #endregion
+
         #region METHODS
         private void PopulatePlayersDropDownLists(object selectedPlayerID = null)
         {

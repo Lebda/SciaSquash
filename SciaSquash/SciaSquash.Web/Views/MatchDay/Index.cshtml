@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New match day", "Create")
 </p>
 
 @foreach (var item in Model)
@@ -17,7 +17,7 @@
         <div class="panel-heading">@Html.DisplayNameFor(model => model.MatchDate) @Html.DisplayFor(modelItem => item.MatchDate)</div>
         <div class="panel-body">
             Games played in match day <br/>
-            @Html.ActionLink("Create New", "Create", "Match", new { matchDayID = item.MatchDayID }, null)
+            @Html.ActionLink("Create New match", "Create", "Match", new { matchDayID = item.MatchDayID }, null)
         </div>
         <!-- Table -->
         <table class="table table-bordered">
