@@ -5,7 +5,7 @@ using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Model.Infrastructure
 {
-    public class SciaSquashDbInitializer : DropCreateDatabaseAlways<SciaSquashContext>
+    public class SciaSquashDbInitializer : DropCreateDatabaseIfModelChanges<SciaSquashContext>
     {
         protected override void Seed(SciaSquashContext context)
         {

@@ -4,53 +4,48 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Match</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstPlayerID)
-        </dt>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Match details</div>
+        <div class="panel-body">
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstPlayerID)
-        </dd>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstPlayerID)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SecondPlayerID)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.FirstPlayerID)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.SecondPlayerID)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SecondPlayerID)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ScorePlayerFirst)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SecondPlayerID)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ScorePlayerFirst)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ScorePlayerFirst)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ScorePlayerSecond)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ScorePlayerFirst)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ScorePlayerSecond)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.ScorePlayerSecond)
+                </dt>
 
-        @*<dt>
-            @Html.DisplayNameFor(model => model.MatchDate)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.ScorePlayerSecond)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MatchDate)
-        </dd>*@
-
-    </dl>
+            </dl>
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MatchID }) |

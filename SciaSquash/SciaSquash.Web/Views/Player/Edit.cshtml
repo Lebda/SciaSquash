@@ -7,15 +7,36 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Player", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Player</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.PlayerID)
+
+        <div class="form-group">
+            @Html.Label("Image", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    @if (Model.ImageData != null)
+                    {
+                        <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.PlayerID })" />
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Upload new image:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div>
+                    <input type="file" name="Image" class="form-control" />
+                </div>
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })

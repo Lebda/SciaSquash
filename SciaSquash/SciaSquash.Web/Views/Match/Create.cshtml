@@ -1,16 +1,13 @@
 ﻿@model SciaSquash.Model.Entities.Match
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create match";
 }
-
-<h2>Create</h2>
-
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-
+    <hr/>
     <div class="panel panel-primary">
         <div class="panel-heading">Create new match</div>
         <div class="panel-body">
@@ -60,7 +57,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", "MatchDay")
+    @Html.ActionLink("Back to MatchDay", "Index", "MatchDay")
 </div>
 
 @section Scripts {

@@ -2,43 +2,37 @@
 using System.Data;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using EFHelp.Concrete.ControllerHelp;
+using EFHelp.Extensions;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Web.Controllers
 {
-    public class PlayerController : Controller
+    public class PlayerController : Conroller4ImageHolder<Player>
     {
-        public PlayerController(IPlayerReposiroty repo)
+        public PlayerController(IPlayerReposiroty repo) : base (repo)
         {
-            m_repo = repo;
         }
-        
-        #region MEMBERS
-        readonly IPlayerReposiroty m_repo;
-        //private readonly SciaSquashContext m_db = new SciaSquashContext();
+
+        #region IMAGES
+        public FileContentResult GetImage(int id)
+        {
+            return base.GetImageBase(id);
+        }
         #endregion
         
         // GET: Player
         public ActionResult Index()
         {
-            return View(m_repo.SelectAll());
+            return base.IndexBase();
         }
         // GET: Player/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            //Player player = m_db.Players.Find(id);
-            var item = m_repo.SelectByID(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            return base.DetailsBase(id);
         }
         // GET: Player/Create
         public ActionResult Create()
@@ -50,8 +44,7 @@ namespace SciaSquash.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,NickName")]
-                                   Player player)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,NickName")] Player player)
         {
             try 
             { 
@@ -71,52 +64,25 @@ namespace SciaSquash.Web.Controllers
             }
             return View(player);
         }
+
+        #region CRUD EDIT
         // GET: Player/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            //Player player = m_db.Players.Find(id);
-            var item = m_repo.SelectByID(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            return base.EditBase(id);
         }
         // POST: Player/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult EditPost(int? id)
+        public ActionResult EditPost(int? id, HttpPostedFileBase image)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            //var studentToUpdate = db.Students.Find(id);
-            var item2Update = m_repo.SelectByID(id);
-            if (TryUpdateModel(item2Update, "",
-               new string[] { "LastName", "FirstMidName", "NickName" }))
-            {
-                try
-                {
-                    m_repo.SaveChanges();
-                    //db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
-                catch (DataException /* dex */)
-                {
-                    //Log the error (uncomment dex variable name and add a line here to write a log.
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-                }
-            }
-            return View(item2Update);
+            return base.EditPostBase(id, null, (player) => HttpPostedFileBaseExtension.ImageUpdate(image, player), "FirstName", "LastName", "NickName");
         }
+        #endregion
+
+
         // GET: Player/Delete/5
         public ActionResult Delete(int? id)
         {

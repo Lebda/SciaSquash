@@ -254,6 +254,9 @@
     <Content Include="Views\Match\Details.cshtml" />
     <Content Include="Views\Match\Edit.cshtml" />
     <Content Include="Views\Match\Index.cshtml" />
+    <Content Include="Views\Shared\MyPartial.cshtml" />
+    <Content Include="Views\Shared\MyStronglyTypedPartial.cshtml" />
+    <Content Include="Views\Shared\Examples.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

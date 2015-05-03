@@ -3,14 +3,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using EFHelp.Concrete;
+using EFHelp.Concrete.ControllerHelp;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
 using SciaSquash.Model.Infrastructure;
 
 namespace SciaSquash.Web.Controllers
 {
-    public class MatchController : ControllerHelper<Match>
+    public class MatchController : ConrollerBase<Match>
     {
         public MatchController(IMatchRepository repo, IPlayerReposiroty playersRepo)
             : base(repo)
@@ -26,12 +26,12 @@ namespace SciaSquash.Web.Controllers
         // GET: Match
         public ActionResult Index()
         {
-            return base.Index();
+            return base.IndexBase();
         }
         // GET: Match/Details/5
         public ActionResult Details(int? id)
         {
-            return base.Details(id);
+            return base.DetailsBase(id);
         }
         // GET: Match/Create
         public ActionResult Create(int? matchDayID)
@@ -49,32 +49,21 @@ namespace SciaSquash.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MatchDayID,FirstPlayerID,SecondPlayerID,ScorePlayerFirst,ScorePlayerSecond")]
-                                   Match match)
+        public ActionResult Create([Bind(Include = "MatchDayID,FirstPlayerID,SecondPlayerID,ScorePlayerFirst,ScorePlayerSecond")] Match match)
         {
-            return base.Create(match, PopulatePlayersDropDownLists, null, () => RedirectToAction("Index", "MatchDay"));
+            return base.CreateBase(match, PopulatePlayersDropDownLists, null, () => RedirectToAction("Index", "MatchDay"));
         }
         // GET: Match/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Match match = db.Matchs.Find(id);
-            if (match == null)
-            {
-                return HttpNotFound();
-            }
-            return View(match);
+            return base.EditBase(id);
         }
         // POST: Match/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MatchID,PlayerFirstID,PlayerSecondID,ScorePlayerFirst,ScorePlayerSecond,MatchDate")]
-                                 Match match)
+        public ActionResult Edit([Bind(Include = "MatchID,PlayerFirstID,PlayerSecondID,ScorePlayerFirst,ScorePlayerSecond,MatchDate")] Match match)
         {
             if (ModelState.IsValid)
             {

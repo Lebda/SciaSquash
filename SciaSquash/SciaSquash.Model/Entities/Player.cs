@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web.Mvc;
+using EFHelp.Concrete;
 
 namespace SciaSquash.Model.Entities
 {
-    public class Player
+    public class Player : IImageHolder
     {
         public Player()
         {
@@ -41,12 +42,19 @@ namespace SciaSquash.Model.Entities
         [StringLength(10, MinimumLength = 3)]
         [Display(Name = "NickName")]
         public string NickName { get; set; }
-        // Navigation
+
+        #region IMAGE
+        public byte[] ImageData { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        public string ImageMimeType { get; set; }
+        #endregion
+
+
+        #region NAVIGATION
         [InverseProperty("FirstPlayer")]
         public ICollection<Match> PlayerAsFirst { get; set; }
         [InverseProperty("SecondPlayer")]
         public ICollection<Match> PlayerAsSecond { get; set; }
-        //[InverseProperty("ThirdPlayer")]
-        //public ICollection<Match> PlayerAsThird{ get; set; }
+        #endregion
     }
 }

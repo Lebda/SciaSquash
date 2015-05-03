@@ -8,20 +8,17 @@ namespace SciaSquash.Model.Infrastructure
 {
     public class SciaSquashContext : DbContext
     {
+        public SciaSquashContext() :
+            base("DefaultConnection")
+        {
+
+        }
         public DbSet<Player> Players { get; set; }
         public DbSet<MatchDay> MatchDays { get; set; }
         public DbSet<Match> Matchs { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-
-            //modelBuilder.Entity<Match>()
-            //            .HasRequired(a => a.FirstPlayer)
-            //            .WithMany(b => b.PlayerAsFirst);
-
-            //modelBuilder.Entity<Match>()
-            //            .HasRequired(a => a.SecondPlayer)
-            //            .WithMany(b => b.PlayerAsSecond);
 
             modelBuilder.Entity<Match>()
                         .HasRequired(e => e.SecondPlayer)
