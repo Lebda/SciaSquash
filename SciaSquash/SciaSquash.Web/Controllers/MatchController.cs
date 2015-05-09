@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using EFHelp.Concrete.ControllerHelp;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
-using SciaSquash.Model.Infrastructure;
 
 namespace SciaSquash.Web.Controllers
 {
@@ -19,7 +17,6 @@ namespace SciaSquash.Web.Controllers
         }
         
         #region MEMBERS
-        private SciaSquashContext db = new SciaSquashContext();
         private readonly IPlayerReposiroty m_playersRepo;
         #endregion
         
@@ -36,7 +33,7 @@ namespace SciaSquash.Web.Controllers
         // GET: Match/Create
         public ActionResult Create(int? matchDayID)
         {
-            PopulatePlayersDropDownLists();
+            CallBack4DropDownListEmpty(null);
             if (matchDayID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -51,51 +48,33 @@ namespace SciaSquash.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MatchDayID,FirstPlayerID,SecondPlayerID,ScorePlayerFirst,ScorePlayerSecond")] Match match)
         {
-            return base.CreateBase(match, PopulatePlayersDropDownLists, null, () => RedirectToAction("Index", "MatchDay"));
+            return base.CreateBase(match, CallBack4DropDownListEmpty, Redirect2Owner);
         }
         // GET: Match/Edit/5
         public ActionResult Edit(int? id)
         {
-            return base.EditBase(id);
+            return base.EditBase(id, CallBack4DropDownList);
         }
         // POST: Match/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MatchID,PlayerFirstID,PlayerSecondID,ScorePlayerFirst,ScorePlayerSecond,MatchDate")] Match match)
+        public ActionResult EditPost(int? id)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(match).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(match);
+            return base.EditPostBase(id, CallBack4DropDownList, Redirect2Owner, null, "FirstPlayerID", "SecondPlayerID", "ScorePlayerFirst", "ScorePlayerSecond");
         }
         // GET: Match/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Match match = db.Matchs.Find(id);
-            if (match == null)
-            {
-                return HttpNotFound();
-            }
-            return View(match);
+            return DeleteBase(id);
         }
         // POST: Match/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Match match = db.Matchs.Find(id);
-            db.Matchs.Remove(match);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            return DeleteConfirmedBase(id, Redirect2Owner);
         }
 
         #region PROTECTED
@@ -110,12 +89,24 @@ namespace SciaSquash.Web.Controllers
         #endregion
 
         #region METHODS
-        private void PopulatePlayersDropDownLists(object selectedPlayerID = null)
+        private void PopulatePlayersDropDownLists(object selectedPlayerIDFirst = null, object selectedPlayerIDSecond = null)
         {
-            var playersQuery = m_playersRepo.DataSet()
+            var playersQuery = m_playersRepo.DataEnumerable()
                                             .OrderBy(i => i.NickName);
-            ViewBag.FirstPlayerID = new SelectList(playersQuery, "PlayerID", "NickName", selectedPlayerID);
-            ViewBag.SecondPlayerID = new SelectList(playersQuery, "PlayerID", "NickName", selectedPlayerID);
+            ViewBag.FirstPlayerID = new SelectList(playersQuery, "PlayerID", "NickName", selectedPlayerIDFirst);
+            ViewBag.SecondPlayerID = new SelectList(playersQuery, "PlayerID", "NickName", selectedPlayerIDSecond);
+        }
+        private void CallBack4DropDownList(Match item)
+        {
+            PopulatePlayersDropDownLists(item.FirstPlayerID, item.SecondPlayerID);
+        }
+        private void CallBack4DropDownListEmpty(Match item)
+        {
+            PopulatePlayersDropDownLists();
+        }
+        private RedirectToRouteResult Redirect2Owner()
+        {
+            return RedirectToAction("Index", "MatchDay");
         }
         #endregion
     }

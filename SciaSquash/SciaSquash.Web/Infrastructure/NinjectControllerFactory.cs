@@ -3,8 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Ninject;
-using SciaSquash.Model.Concrete;
-using SciaSquash.Model.Abstract;
+using SciaSquash.Model.Infrastructure;
 
 namespace SciaSquash.Web.Infrastructure
 {
@@ -24,9 +23,7 @@ namespace SciaSquash.Web.Infrastructure
         }
         private void AddBindings()
         {
-            m_ninjectKernel.Bind<IMatchDayRepository>().To<MatchDayRepository>();
-            m_ninjectKernel.Bind<IMatchRepository>().To<MatchRepository>();
-            m_ninjectKernel.Bind<IPlayerReposiroty>().To<PlayerReposiroty>();
+            ModuleRegistrator.AddBindings(m_ninjectKernel);
         }
     }
 }

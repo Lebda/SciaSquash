@@ -36,6 +36,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -53,12 +56,21 @@
     <Compile Include="Abstract\IMatchDayRepository.cs" />
     <Compile Include="Abstract\IMatchRepository.cs" />
     <Compile Include="Abstract\IPlayerReposiroty.cs" />
+    <Compile Include="Abstract\IPlayerResult.cs" />
+    <Compile Include="Abstract\IResolver.cs" />
+    <Compile Include="Abstract\IScore4Rival.cs" />
+    <Compile Include="Abstract\IResultsCalculator.cs" />
     <Compile Include="Concrete\MatchDayRepository.cs" />
     <Compile Include="Concrete\MatchRepository.cs" />
     <Compile Include="Concrete\PlayerReposiroty.cs" />
+    <Compile Include="Concrete\PlayerResult.cs" />
+    <Compile Include="Concrete\Resolver.cs" />
+    <Compile Include="Concrete\ResultsCalculator.cs" />
+    <Compile Include="Concrete\Score4Rival.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchDay.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Infrastructure\ModuleRegistrator.cs" />
     <Compile Include="Infrastructure\SciaSquashContext.cs" />
     <Compile Include="Infrastructure\SciaSquashDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

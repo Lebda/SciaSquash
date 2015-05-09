@@ -7,47 +7,45 @@
 <div>
     <hr />
     <div class="panel panel-primary">
-        <div class="panel-heading">Match details</div>
+        <div class="panel-heading">@Html.DisplayNameFor(model => model.MatchDay.MatchDate) @Html.DisplayFor(model => model.MatchDay.MatchDate)</div>
         <div class="panel-body">
 
-            <dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.FirstPlayerID)
-                </dt>
+            <div class="container">
 
-                <dd>
-                    @Html.DisplayFor(model => model.FirstPlayerID)
-                </dd>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        @if (Model.FirstPlayer.ImageData != null)
+                        {
+                                                    <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.FirstPlayer.PlayerID })" />
+                        }
+                    </div>
+                    <div class="col-md-4">
+                        <h1>@Html.Encode(Model.ScorePlayerFirst) : @Html.Encode(Model.ScorePlayerSecond)</h1>
+                    </div>
+                    <div class="col-md-4">
+                        @if (Model.SecondPlayer.ImageData != null)
+                        {
+                                                    <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.SecondPlayer.PlayerID })" />
+                        }
+                    </div>
+                </div>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.SecondPlayerID)
-                </dt>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <h1>@Html.DisplayFor(model => model.FirstPlayer.NickName)</h1>
+                    </div>
+                    <div class="col-md-4">
 
-                <dd>
-                    @Html.DisplayFor(model => model.SecondPlayerID)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ScorePlayerFirst)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ScorePlayerFirst)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.ScorePlayerSecond)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.ScorePlayerSecond)
-                </dd>
-
-            </dl>
+                    </div>
+                    <div class="col-md-4">
+                        <h1>@Html.DisplayFor(model => model.SecondPlayer.NickName)</h1>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.MatchID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to match day", "Index", "MatchDay")
 </p>

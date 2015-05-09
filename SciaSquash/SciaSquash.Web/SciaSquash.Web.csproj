@@ -177,15 +177,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\Match\MatchCreateViewModel.cs" />
+    <Compile Include="ViewModels\Player\LeaderViewModel.cs" />
+    <Compile Include="ViewModels\Player\RankingViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\32528915-cartoon-squash-racket.jpg" />
+    <Content Include="Content\Images\air_lite_135_power-420x420.jpg" />
     <Content Include="Content\Images\LebsoftLogo_128.png" />
     <Content Include="Content\Images\LebsoftLogo_16.png" />
     <Content Include="Content\Images\LebsoftLogo_256.png" />
     <Content Include="Content\Images\LebsoftLogo_32.png" />
     <Content Include="Content\Images\LebsoftLogo_64.png" />
+    <Content Include="Content\Images\photo4.gif" />
+    <Content Include="Content\Images\pi3710069.jpg" />
+    <Content Include="Content\Images\SciaSquashLogo.png" />
+    <Content Include="Content\Images\squash-40790_640.png" />
+    <Content Include="Content\Images\squash_racket_oval_decal.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -253,17 +262,17 @@
     <Content Include="Views\Match\Delete.cshtml" />
     <Content Include="Views\Match\Details.cshtml" />
     <Content Include="Views\Match\Edit.cshtml" />
-    <Content Include="Views\Match\Index.cshtml" />
     <Content Include="Views\Shared\MyPartial.cshtml" />
     <Content Include="Views\Shared\MyStronglyTypedPartial.cshtml" />
     <Content Include="Views\Shared\Examples.cshtml" />
+    <Content Include="Views\Player\Ranking.cshtml" />
+    <Content Include="Views\Player\Leader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\Abstract\" />
     <Folder Include="Infrastructure\Concrete\" />
     <Folder Include="ViewModels\MatchDay\" />
-    <Folder Include="ViewModels\Player\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -15,16 +15,14 @@ namespace SciaSquash.Model.Entities
             PlayerAsFirst = new List<Match>();
             PlayerAsSecond = new List<Match>();
         }
-
         public override string ToString()
         {
             return
-                "PlayerID: " + PlayerID.ToString() + "|" +
-                "NickName: " + NickName + "|" +
-                "PlayerAsFirst: " + PlayerAsFirst.Count().ToString() + "|" +
-                "PlayerAsSecond: " + PlayerAsSecond.Count().ToString();
+                  "PlayerID: " + PlayerID.ToString() + "|" +
+                  "NickName: " + NickName + "|" +
+                  "PlayerAsFirst: " + PlayerAsFirst.Count().ToString() + "|" +
+                  "PlayerAsSecond: " + PlayerAsSecond.Count().ToString();
         }
-
         [HiddenInput(DisplayValue = false)]
         public int PlayerID { get; set; }
         //
@@ -42,14 +40,13 @@ namespace SciaSquash.Model.Entities
         [StringLength(10, MinimumLength = 3)]
         [Display(Name = "NickName")]
         public string NickName { get; set; }
-
+        
         #region IMAGE
         public byte[] ImageData { get; set; }
         [HiddenInput(DisplayValue = false)]
         public string ImageMimeType { get; set; }
-        #endregion
-
-
+        #endregion       
+        
         #region NAVIGATION
         [InverseProperty("FirstPlayer")]
         public ICollection<Match> PlayerAsFirst { get; set; }

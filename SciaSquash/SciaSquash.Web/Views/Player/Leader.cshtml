@@ -1,0 +1,21 @@
+﻿@model SciaSquash.Web.ViewModels.Player.LeaderViewModel
+
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12">
+            @if (Model.Leader.Player.ImageData != null)
+            {
+                <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.Leader.Player.PlayerID })" />
+            }
+        </div>
+    </div>  
+    <hr />
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h2>@Html.DisplayFor(item => Model.Leader.Player.NickName)</h2>
+        </div>
+    </div>  
+
+</div>
