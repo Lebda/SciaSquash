@@ -1,153 +1,58 @@
 ﻿using System;
-using System.Data;
 using System.Linq;
-using System.Net;
 using System.Web.Mvc;
+using EFHelp.Concrete.ControllerHelp;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Web.Controllers
 {
-    public class MatchDayController : Controller
+    public class MatchDayController : ConrollerBase<MatchDay>
     {
         public MatchDayController(IMatchDayRepository repo)
+            : base(repo)
         {
-            m_repo = repo;
         }
 
-        #region MEMBERS
-        readonly IMatchDayRepository m_repo;
-        #endregion
-
-        // GET: MatchDay
+        #region CRUD
         public ActionResult Index()
         {
-            var test = m_repo.SelectAll();
-            return View(test);
+            return base.IndexBase();
         }
-
-        // GET: MatchDay/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var item = m_repo.SelectByID(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            return base.DetailsBase(id);
         }
-
-        // GET: MatchDay/Create
         public ActionResult Create()
         {
-            return View();
+            return base.CreateBase();
         }
-
-        // POST: MatchDay/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "MatchDate")] MatchDay matchDay)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    m_repo.Insert(matchDay);
-                    m_repo.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
-            catch (DataException dex)
-            {
-                //Log the error (uncomment dex variable name and add a line here to write a log.
-                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
-            }
-            return View(matchDay);
+            return base.CreateBase(matchDay);
         }
-
-        // GET: MatchDay/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var item = m_repo.SelectByID(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            return base.EditBase(id);
         }
-
-        // POST: MatchDay/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var item2Update = m_repo.SelectByID(id);
-            if (TryUpdateModel(item2Update, "",
-               new string[] { "MatchDate"}))
-            {
-                try
-                {
-                    m_repo.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch (DataException /* dex */)
-                {
-                    //Log the error (uncomment dex variable name and add a line here to write a log.
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-                }
-            }
-            return View(item2Update);
+            return base.EditPostBase(id, null, null, null, "MatchDate");
         }
-
-        // GET: Player/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var item = m_repo.SelectByID(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            return DeleteBase(id);
         }
-
-        // POST: MatchDay/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            m_repo.Delete(id);
-            m_repo.SaveChanges();
-            return RedirectToAction("Index");
+            return DeleteConfirmedBase(id, null);
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                m_repo.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
+        #endregion
     }
 }

@@ -9,16 +9,16 @@ namespace SciaSquash.Model.Infrastructure
     {
         protected override void Seed(SciaSquashContext context)
         {
-            var radim = new Player { FirstName = "Radim", LastName = "Matela", NickName = "Prdelnik" };
+            var radim = new Player { FirstName = "Radim", LastName = "Matela", NickName = "Prdelnik", SpecialPower = "Always be late" };
             context.Players.Add(radim);
             context.SaveChanges();
-            var mirek = new Player { FirstName = "Mirek", LastName = "Lunak", NickName = "Orel" };
+            var mirek = new Player { FirstName = "Mirek", LastName = "Lunak", NickName = "Orel", SpecialPower = "Always smile" };
             context.Players.Add(mirek);
             context.SaveChanges();
-            var lebda = new Player { FirstName = "Jiri", LastName = "Lebduska", NickName = "Lebda" };
+            var lebda = new Player { FirstName = "Jiri", LastName = "Lebduska", NickName = "Lebda", SpecialPower = "Get really pissed off" };
             context.Players.Add(lebda);
             context.SaveChanges();
-            var rybizek = new Player { FirstName = "Tomas", LastName = "Pail", NickName = "Rybizek" };
+            var rybizek = new Player { FirstName = "Tomas", LastName = "Pail", NickName = "Rybizek", SpecialPower = "Mr. short hit" };
             context.Players.Add(rybizek);
             context.SaveChanges();
             var testMatchDay = new MatchDay{MatchDate=DateTime.Parse("2015-03-31")};

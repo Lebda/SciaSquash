@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using SciaSquash.Model.Abstract;
+using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Model.Concrete
 {
@@ -29,14 +30,18 @@ namespace SciaSquash.Model.Concrete
         readonly IResolver<IScore4Rival> m_score4RivalResolver;
         #endregion
         
-        #region PROPERTIES
+        #region INTERFACE
         public IPlayerResult Leader 
         { 
             get { return Items.First(); }
         }
         public ICollection<IPlayerResult> Items { get; set; }
+        public IPlayerResult GetResults4PlayerID(int playerID)
+        {
+            return Items.Where(item => item.Player.PlayerID == playerID).First();
+        }
         #endregion
-        
+               
         #region METHODS
         private void PreparePlayers()
         {
@@ -58,16 +63,17 @@ namespace SciaSquash.Model.Concrete
                     {
                         continue;
                     }
-                    itemResult.RivalScore.Add(rival.PlayerID, PrepareRivalScore(itemResult.Player.PlayerID, rival.PlayerID));
+                    itemResult.RivalScore.Add(rival.PlayerID, PrepareRivalScore(itemResult.Player.PlayerID, rival));
                 }
             }
-            Items = playersResults.OrderByDescending(item => item.Points).OrderByDescending(item => (item.ScrorePlus - item.ScoreMinus)).ToList();
+            Items = playersResults.OrderByDescending(item => item.Points).ThenBy(item => (item.ScrorePlus - item.ScoreMinus)).ToList();
         }
-        private IScore4Rival PrepareRivalScore(int playerID, int rivalID)
+        private IScore4Rival PrepareRivalScore(int playerID, Player rival)
         {
             IScore4Rival retVal = m_score4RivalResolver.Resolve();
+            retVal.Rival = rival;
             var queryMatches = m_matchRepo.DataQueryable()
-                .Where(item => (item.FirstPlayerID == playerID && item.SecondPlayerID == rivalID) || (item.FirstPlayerID == rivalID && item.SecondPlayerID == playerID));
+                .Where(item => (item.FirstPlayerID == playerID && item.SecondPlayerID == retVal.Rival.PlayerID) || (item.FirstPlayerID == retVal.Rival.PlayerID && item.SecondPlayerID == playerID));
             foreach (var match in queryMatches)
             {
                 if (match.FirstPlayerID == playerID)

@@ -40,6 +40,11 @@ namespace SciaSquash.Model.Entities
         [StringLength(10, MinimumLength = 3)]
         [Display(Name = "NickName")]
         public string NickName { get; set; }
+
+        [Required(ErrorMessage = "Please enter your special power")]
+        [StringLength(256, MinimumLength = 3)]
+        [Display(Name = "Special power")]
+        public string SpecialPower { get; set; }
         
         #region IMAGE
         public byte[] ImageData { get; set; }

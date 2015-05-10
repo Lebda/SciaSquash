@@ -7,17 +7,17 @@
     @foreach (var item in Model.Items)
     {
         <div class="row text-center">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 @if (item.Player.ImageData != null)
                 {
-                            <img width="50" height="50" src="@Url.Action("GetImage", "Player", new { id = item.Player.PlayerID })" />
+                            <img width="75" height="75" src="@Url.Action("GetImage", "Player", new { id = item.Player.PlayerID })" />
                 }
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <h3>@Html.DisplayFor(modelItem => item.Player.NickName)</h3>
             </div>
             <div class="col-md-5">
-                <h3>@Html.Encode(item.Points)</h3>
+                <h3>@Html.Encode(item.Points)<small>pt</small></h3>
                 <div class="row text-center">
                     <div class="col-md-12">
                         <span class="badge">@Html.Encode(item.ScrorePlus)</span> : <span class="badge">@Html.Encode(item.ScoreMinus)</span>

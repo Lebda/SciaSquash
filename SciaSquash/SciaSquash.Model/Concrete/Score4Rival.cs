@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using SciaSquash.Model.Abstract;
+using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Model.Concrete
 {
@@ -18,6 +19,7 @@ namespace SciaSquash.Model.Concrete
         #endregion
 
         #region PROPERTIES
+        public Player Rival { get; set; }
         public int Points
         {
             get { return GetPoints(); }

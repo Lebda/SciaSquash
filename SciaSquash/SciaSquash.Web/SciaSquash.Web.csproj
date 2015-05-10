@@ -162,6 +162,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MatchController.cs" />
@@ -267,12 +268,15 @@
     <Content Include="Views\Shared\Examples.cshtml" />
     <Content Include="Views\Player\Ranking.cshtml" />
     <Content Include="Views\Player\Leader.cshtml" />
+    <Content Include="Views\Player\TotalPlayerResult.cshtml" />
+    <Content Include="Views\Player\RivalResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Infrastructure\Abstract\" />
     <Folder Include="Infrastructure\Concrete\" />
     <Folder Include="ViewModels\MatchDay\" />
+    <Folder Include="Views\Content\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -285,6 +289,10 @@
     <ProjectReference Include="..\..\..\MVCBase\MVCBase\EFHelp\EFHelp.csproj">
       <Project>{373d9bee-a8ed-4761-9b89-735e5bb9b6df}</Project>
       <Name>EFHelp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\MVCBase\MVCBase\MVCHelp\MVCHelp.csproj">
+      <Project>{7D8132FB-E99A-4736-AFE5-7C9C757F2491}</Project>
+      <Name>MVCHelp</Name>
     </ProjectReference>
     <ProjectReference Include="..\SciaSquash.Model\SciaSquash.Model.csproj">
       <Project>{8dd1d06c-9d6d-4a65-994d-66d16a3b4ac6}</Project>

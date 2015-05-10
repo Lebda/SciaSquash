@@ -39,6 +39,16 @@ namespace SciaSquash.Web.Controllers
         public ActionResult Leader()
         {
             return PartialView(new LeaderViewModel(m_resCalc));
+        }
+        [ChildActionOnly]
+        public ActionResult TotalPlayerResult(int playerID)
+        {
+            return PartialView(m_resCalc.GetResults4PlayerID(playerID));
+        }
+        [ChildActionOnly]
+        public ActionResult RivalResults(int playerID)
+        {
+            return PartialView(m_resCalc.GetResults4PlayerID(playerID));
         } 
         #endregion
 

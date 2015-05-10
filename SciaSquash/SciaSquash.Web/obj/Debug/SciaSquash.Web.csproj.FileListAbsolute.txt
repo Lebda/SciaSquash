@@ -59,3 +59,5 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.pdb
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.dll
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.pdb

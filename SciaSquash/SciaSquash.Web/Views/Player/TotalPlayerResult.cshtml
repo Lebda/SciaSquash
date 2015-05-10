@@ -1,0 +1,23 @@
+﻿@model SciaSquash.Model.Abstract.IPlayerResult
+
+<div class="container">
+    <div class="row text-left">
+        <div class="col-md-12">
+            <dl>
+                <dt>
+                    <span class="label label-danger">Actual points</span>
+                </dt>
+                <dd>
+                    <h2>@Html.DisplayFor(model => model.Points)<small>pt</small></h2>
+                </dd>
+                <dt>
+                    <span class="label label-danger">Actual score</span>
+                </dt>
+                <dd>
+                    <br>
+                    <span class="badge">@Html.Encode(Model.ScrorePlus)</span> : <span class="badge">@Html.Encode(Model.ScoreMinus)</span>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>

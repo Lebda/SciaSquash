@@ -4,44 +4,66 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Player</h4>
     <hr />
-    @if (Model.ImageData != null)
-    {
-        <div style="float:left;margin-right:20px">
-            <img width="75" height="75" src="@Url.Action("GetImage", "Player", new { id = Model.PlayerID })" />
+    <div class="panel panel-primary">
+        <div class="panel-heading">@Html.DisplayFor(model => model.NickName)</div>
+        <div class="panel-body">
+
+            <div class="container">
+
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        @if (Model.ImageData != null)
+                        {
+                            <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.PlayerID })" />
+                        }
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <dl>
+                            <dt>
+                                <span class="label label-info">@Html.DisplayNameFor(model => model.FirstName)</span>
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.FirstName)
+                            </dd>
+                            <dt>
+                                <span class="label label-info">@Html.DisplayNameFor(model => model.LastName)</span>
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.LastName)
+                            </dd>
+                            <dt>
+                                <span class="label label-info">@Html.DisplayNameFor(model => model.NickName)</span>
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.NickName)
+                            </dd>
+                            <dt>
+                                <span class="label label-info">@Html.DisplayNameFor(model => model.SpecialPower)</span>
+                            </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.SpecialPower)
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="col-md-3 text-left">
+                        @Html.Action("TotalPlayerResult", "Player", new { playerID = Model.PlayerID })
+                    </div>
+                    <div class="col-md-3 text-left">
+                        <img width="150" height="150" src="~/Content/Images/SciaSquashLogo.png" />
+                    </div>
+                </div>
+
+            </div>
         </div>
-    }
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+    <hr />
+    @Html.Action("RivalResults", "Player", new { playerID = Model.PlayerID })
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NickName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NickName)
-        </dd>
-
-    </dl>
 </div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.PlayerID }) |
     @Html.ActionLink("Back to List", "Index")
