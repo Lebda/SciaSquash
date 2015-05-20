@@ -1,0 +1,14 @@
+﻿@model SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel
+
+@if (Model.Player.ImageData != null)
+{
+    <img width=@Model.Width height=@Model.Height
+         class="img-thumbnail"
+         src="@Url.Action("GetImage", "Player", new { id = Model.Player.PlayerID })" />
+}
+else
+{
+    <img width=@Model.Width height=@Model.Height
+         class="img-thumbnail"
+         src="~/Content/Images/SciaSquashLogo.png" />
+}

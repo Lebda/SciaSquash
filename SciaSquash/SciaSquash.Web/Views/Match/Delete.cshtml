@@ -19,19 +19,13 @@
 
                     <div class="row text-center">
                         <div class="col-md-4">
-                            @if (Model.FirstPlayer.ImageData != null)
-                            {
-                                <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.FirstPlayer.PlayerID })" />
-                            }
+                            @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = Model.FirstPlayer, Height = 150.0, Width = 150.0 })
                         </div>
                         <div class="col-md-4">
                             <h1>@Html.Encode(Model.ScorePlayerFirst) : @Html.Encode(Model.ScorePlayerSecond)</h1>
                         </div>
                         <div class="col-md-4">
-                            @if (Model.SecondPlayer.ImageData != null)
-                            {
-                                <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.SecondPlayer.PlayerID })" />
-                            }
+                            @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = Model.SecondPlayer, Height = 150.0, Width = 150.0 })
                         </div>
                     </div>
 

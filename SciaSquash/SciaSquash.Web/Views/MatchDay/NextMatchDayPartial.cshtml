@@ -1,0 +1,16 @@
+﻿@model SciaSquash.Web.ViewModels.MatchDay.NextMatchDayViewModel
+
+@if (Model.MatchDay != null)
+{
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h3>Get ready</h3>
+            <br />
+            <h3><span class="label label-danger">@Html.DisplayFor(modelItem => Model.MatchDay.MatchDate)</span></h3>
+            <br />
+            <img width="50" height="50"
+                 src="~/Content/Images/32528915-cartoon-squash-racket.jpg" />
+            <br />
+        </div>
+    </div>
+}

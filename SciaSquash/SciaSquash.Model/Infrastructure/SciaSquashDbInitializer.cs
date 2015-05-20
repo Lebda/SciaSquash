@@ -5,7 +5,7 @@ using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Model.Infrastructure
 {
-    public class SciaSquashDbInitializer : DropCreateDatabaseIfModelChanges<SciaSquashContext> //DropCreateDatabaseAlways
+    public class SciaSquashDbInitializer : DropCreateDatabaseIfModelChanges<SciaSquashContext> //DropCreateDatabaseAlways DropCreateDatabaseIfModelChanges
     {
         protected override void Seed(SciaSquashContext context)
         {
@@ -21,24 +21,36 @@ namespace SciaSquash.Model.Infrastructure
             var rybizek = new Player { FirstName = "Tomas", LastName = "Pail", NickName = "Rybizek", SpecialPower = "Mr. short hit" };
             context.Players.Add(rybizek);
             context.SaveChanges();
-            var testMatchDay = new MatchDay{MatchDate=DateTime.Parse("2015-03-31")};
-            context.MatchDays.Add(testMatchDay);
+            var firstMatchDay = new MatchDay{MatchDate=DateTime.Parse("2015-03-31")};
+            context.MatchDays.Add(firstMatchDay);
             context.SaveChanges();
-            context.MatchDays.Add(new MatchDay { MatchDate = DateTime.Parse("2015-03-24") });
+            var secondMatchDay = new MatchDay { MatchDate = DateTime.Parse("2015-03-24") };
+            context.MatchDays.Add(secondMatchDay);
             context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = mirek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 2, MatchDayID = testMatchDay.MatchDayID });
+            context.MatchDays.Add(new MatchDay { MatchDate = DateTime.Parse("2015-05-25") });
             context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 3, MatchDayID = testMatchDay.MatchDayID });
-            context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 1, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
-            context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = 2, ScorePlayerSecond = 3, MatchDayID = testMatchDay.MatchDayID });
-            context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 2, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
-            context.SaveChanges();
-            context.Matchs.Add(new Match { FirstPlayerID = lebda.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = 3, ScorePlayerSecond = 4, MatchDayID = testMatchDay.MatchDayID });
+            ////
+            AddMatches4MatchDay(radim, mirek, lebda, rybizek, firstMatchDay, context);
+            AddMatches4MatchDay(radim, mirek, lebda, rybizek, secondMatchDay, context);
             context.SaveChanges();  
-           // base.Seed(context);
+            // base.Seed(context);
+        }
+        private void AddMatches4MatchDay(Player radim, Player mirek, Player lebda, Player rybizek, MatchDay matchDay, SciaSquashContext context)
+        {
+            Random rnd = new Random();
+            int min = 1;
+            int max = 13;
+            context.Matches.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = mirek.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matches.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matches.Add(new Match { FirstPlayerID = radim.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matches.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = lebda.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matches.Add(new Match { FirstPlayerID = mirek.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
+            context.SaveChanges();
+            context.Matches.Add(new Match { FirstPlayerID = lebda.PlayerID, SecondPlayerID = rybizek.PlayerID, ScorePlayerFirst = rnd.Next(min, max), ScorePlayerSecond = rnd.Next(min, max), MatchDayID = matchDay.MatchDayID });
         }
     }
 }

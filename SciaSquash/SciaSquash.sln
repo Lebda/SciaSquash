@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHelp", "..\..\MVCBase\MVC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCHelp", "..\..\MVCBase\MVCBase\MVCHelp\MVCHelp.csproj", "{7D8132FB-E99A-4736-AFE5-7C9C757F2491}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVCBase", "MVCBase", "{DE10E0FC-FFD2-4ED1-91AD-ADB33ABE0CA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdenityHelp", "..\..\MVCBase\MVCBase\IdenityHelp\IdenityHelp.csproj", "{C9F0C052-123B-4ECE-9950-9120AFD4F92B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +37,17 @@ Global
 		{7D8132FB-E99A-4736-AFE5-7C9C757F2491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D8132FB-E99A-4736-AFE5-7C9C757F2491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D8132FB-E99A-4736-AFE5-7C9C757F2491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9F0C052-123B-4ECE-9950-9120AFD4F92B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F0C052-123B-4ECE-9950-9120AFD4F92B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F0C052-123B-4ECE-9950-9120AFD4F92B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F0C052-123B-4ECE-9950-9120AFD4F92B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{373D9BEE-A8ED-4761-9B89-735E5BB9B6DF} = {DE10E0FC-FFD2-4ED1-91AD-ADB33ABE0CA9}
+		{7D8132FB-E99A-4736-AFE5-7C9C757F2491} = {DE10E0FC-FFD2-4ED1-91AD-ADB33ABE0CA9}
+		{C9F0C052-123B-4ECE-9950-9120AFD4F92B} = {DE10E0FC-FFD2-4ED1-91AD-ADB33ABE0CA9}
 	EndGlobalSection
 EndGlobal

@@ -15,7 +15,7 @@ namespace SciaSquash.Model.Infrastructure
         }
         public DbSet<Player> Players { get; set; }
         public DbSet<MatchDay> MatchDays { get; set; }
-        public DbSet<Match> Matchs { get; set; }
+        public DbSet<Match> Matches { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

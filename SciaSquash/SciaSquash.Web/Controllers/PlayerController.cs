@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EFHelp.Concrete.ControllerHelp;
@@ -31,24 +32,43 @@ namespace SciaSquash.Web.Controllers
 
         #region CHILD ACTIONS
         [ChildActionOnly]
-        public ActionResult Ranking()
+        public ActionResult RankingPartial()
         {
             return PartialView(new RankingViewModel(m_resCalc));
         }
         [ChildActionOnly]
-        public ActionResult Leader()
+        public ActionResult LeaderPartial()
         {
             return PartialView(new LeaderViewModel(m_resCalc));
         }
         [ChildActionOnly]
-        public ActionResult TotalPlayerResult(int playerID)
+        public ActionResult TotalPlayerResultPartial(int playerID)
         {
             return PartialView(m_resCalc.GetResults4PlayerID(playerID));
         }
         [ChildActionOnly]
-        public ActionResult RivalResults(int playerID)
+        public ActionResult RivalResultsPartial(int playerID, int? rivalID)
         {
-            return PartialView(m_resCalc.GetResults4PlayerID(playerID));
+            return PartialView(new RivalResultsViewModel(m_resCalc.GetResults4PlayerID(playerID), rivalID));
+        }
+        [ChildActionOnly]
+        public ActionResult RivalMatchesPartial(int? playerID, int? rivalID)
+        {
+            return PartialView(new RivalMatchesViewModel(m_resCalc, playerID, rivalID));
+        }
+        [ChildActionOnly]
+        public ActionResult PlayerInfoPartial(int? playerID, bool showCRUDActions)
+        {
+            if (playerID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var player = m_repo.SelectByID(playerID);
+            if (player == null)
+            {
+                return HttpNotFound();
+            }
+            return PartialView(new PlayerInfoViewModel(player, showCRUDActions));
         } 
         #endregion
 
@@ -57,9 +77,18 @@ namespace SciaSquash.Web.Controllers
         {
             return base.IndexBase();
         }
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? playerID, int? rivalID)
         {
-            return base.DetailsBase(id);
+            if (playerID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var player = m_repo.SelectByID(playerID);
+            if (player == null)
+            {
+                return HttpNotFound();
+            }
+            return View(new PlayerDetailsViewModel(player, rivalID));
         }
         public ActionResult Create()
         {

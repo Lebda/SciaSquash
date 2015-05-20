@@ -1,0 +1,11 @@
+﻿@model SciaSquash.Web.ViewModels.Player.RivalMatchesViewModel
+
+@if (Model.IsVisible)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">Matches with rival</div>
+        <div class="panel-body">
+            @Html.Partial("MatchIndexPartial", new SciaSquash.Web.ViewModels.Match.MatchIndexViewModel { Matches = Model.Matches4Rival })
+        </div>
+    </div>
+}

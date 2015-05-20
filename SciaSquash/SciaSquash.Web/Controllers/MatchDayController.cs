@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using EFHelp.Concrete.ControllerHelp;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
+using SciaSquash.Web.ViewModels.MatchDay;
 
 namespace SciaSquash.Web.Controllers
 {
@@ -13,6 +14,18 @@ namespace SciaSquash.Web.Controllers
             : base(repo)
         {
         }
+
+        #region CHILD ACTIONS
+        [ChildActionOnly]
+        public ActionResult NextMatchDayPartial()
+        {
+            var query = m_repo.DataEnumerable()
+                .Where(item => item.MatchDate > DateTime.Now)
+                .OrderBy(item => item.MatchDate)
+                .FirstOrDefault();
+            return PartialView(new NextMatchDayViewModel { MatchDay = query });
+        }
+        #endregion
 
         #region CRUD
         public ActionResult Index()

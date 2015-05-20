@@ -1,0 +1,46 @@
+﻿@model SciaSquash.Web.ViewModels.Player.RivalResultsViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Results with rivals</div>
+    <div class="panel-body">
+
+        <table class="table table-bordered">
+            <tr>
+                <th>#</th>
+                <th>Rival</th>
+                <th>Points</th>
+                <th>Score</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Results4Player.RivalScore.Values)
+            {
+                string selectedRow = "";
+                if (item.Rival.PlayerID == Model.RivalID)
+                {
+                    selectedRow = "success";
+                }
+                <tr class="@selectedRow">
+                    <td>
+                        @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = item.Rival, Height = 50.0, Width = 50.0 })
+                    </td>
+                    <td>
+                        <h4>@Html.DisplayFor(modelItem => item.Rival.NickName)</h4>
+                    </td>
+                    <td>
+                        <h4>
+                            @Html.DisplayFor(modelItem => item.Points)<small>pt</small>
+                        </h4>
+                    </td>
+                    <td>
+                        <span class="badge">@Html.DisplayFor(modelItem => item.ScorePlus)</span> : <span class="badge">@Html.DisplayFor(modelItem => item.ScoreMinus)</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("See details for rival", "Details", "Player", new { playerID = Model.Results4Player.Player.PlayerID, rivalID = item.Rival.PlayerID }, null)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

@@ -1,4 +1,4 @@
-﻿@model SciaSquash.Model.Entities.Player
+﻿@model SciaSquash.Web.ViewModels.Player.PlayerDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -6,65 +6,17 @@
 
 <div>
     <hr />
-    <div class="panel panel-primary">
-        <div class="panel-heading">@Html.DisplayFor(model => model.NickName)</div>
-        <div class="panel-body">
-
-            <div class="container">
-
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        @if (Model.ImageData != null)
-                        {
-                            <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.PlayerID })" />
-                        }
-                    </div>
-                    <div class="col-md-3 text-left">
-                        <dl>
-                            <dt>
-                                <span class="label label-info">@Html.DisplayNameFor(model => model.FirstName)</span>
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.FirstName)
-                            </dd>
-                            <dt>
-                                <span class="label label-info">@Html.DisplayNameFor(model => model.LastName)</span>
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.LastName)
-                            </dd>
-                            <dt>
-                                <span class="label label-info">@Html.DisplayNameFor(model => model.NickName)</span>
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.NickName)
-                            </dd>
-                            <dt>
-                                <span class="label label-info">@Html.DisplayNameFor(model => model.SpecialPower)</span>
-                            </dt>
-                            <dd>
-                                @Html.DisplayFor(model => model.SpecialPower)
-                            </dd>
-                        </dl>
-                    </div>
-                    <div class="col-md-3 text-left">
-                        @Html.Action("TotalPlayerResult", "Player", new { playerID = Model.PlayerID })
-                    </div>
-                    <div class="col-md-3 text-left">
-                        <img width="150" height="150" src="~/Content/Images/SciaSquashLogo.png" />
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    @Html.Action("PlayerInfoPartial", "Player", new { playerID = Model.Player.PlayerID, showCRUDActions = false })
 
     <hr />
-    @Html.Action("RivalResults", "Player", new { playerID = Model.PlayerID })
+    @Html.Action("RivalResultsPartial", "Player", new { playerID = Model.Player.PlayerID, rivalID = Model.RivalID })
+
+    <hr />
+    @Html.Action("RivalMatchesPartial", "Player", new { playerID = Model.Player.PlayerID, rivalID = Model.RivalID })
 
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PlayerID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Player.PlayerID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

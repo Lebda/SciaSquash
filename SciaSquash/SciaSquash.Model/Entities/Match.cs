@@ -59,7 +59,8 @@ namespace SciaSquash.Model.Entities
         [Display(Name = "Score")]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter a positive score or zero")]
         public int ScorePlayerSecond { get; set; }
-        // Navigation
+
+        #region NAVIGATION
         [ForeignKey("FirstPlayerID")]
         [InverseProperty("PlayerAsFirst")]
         public virtual Player FirstPlayer { get; set; }
@@ -68,5 +69,6 @@ namespace SciaSquash.Model.Entities
         public virtual Player SecondPlayer { get; set; }
         [ForeignKey("MatchDayID")]
         public virtual MatchDay MatchDay { get; set; }
+        #endregion
     }
 }

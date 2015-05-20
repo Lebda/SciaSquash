@@ -1,0 +1,27 @@
+﻿@model SciaSquash.Web.ViewModels.Player.LeaderViewModel
+
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12">
+            @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = Model.Leader.Player, Height = 150.0, Width = 150.0 })
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h2>@Html.DisplayFor(item => Model.Leader.Player.NickName)</h2>
+            <br>
+            <span class="label label-danger">Actual point score</span>
+            <br>
+            <h3>
+                @Html.Encode(Model.Leader.Points)<small>pt</small>
+            </h3>
+            <br>
+            <span class="label label-danger">@Html.DisplayNameFor(model => model.Leader.Player.SpecialPower)</span>
+            <br>
+            <h3>@Html.DisplayFor(model => model.Leader.Player.SpecialPower)</h3>
+        </div>
+    </div>  
+
+</div>

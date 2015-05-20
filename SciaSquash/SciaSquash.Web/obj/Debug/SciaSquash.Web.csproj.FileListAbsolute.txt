@@ -1,4 +1,3 @@
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.csprojResolveAssemblyReference.cache
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.dll.config
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.pdb
@@ -6,6 +5,7 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EFHelp.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EntityFramework.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EntityFramework.SqlServer.dll
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\IdenityHelp.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -19,6 +19,7 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.Twitter.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Newtonsoft.Json.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Ninject.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Owin.dll
@@ -32,7 +33,11 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.WebPages.Razor.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\WebGrease.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EFHelp.pdb
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\IdenityHelp.pdb
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.pdb
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Model.pdb
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Ninject.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Helpers.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Mvc.xml
@@ -45,10 +50,8 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Newtonsoft.Json.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EntityFramework.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\EntityFramework.SqlServer.xml
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.Core.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.Facebook.xml
@@ -57,7 +60,6 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.csprojResolveAssemblyReference.cache
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.pdb
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.dll
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\MVCHelp.pdb

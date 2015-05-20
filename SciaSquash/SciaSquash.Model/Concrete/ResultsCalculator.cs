@@ -40,6 +40,12 @@ namespace SciaSquash.Model.Concrete
         {
             return Items.Where(item => item.Player.PlayerID == playerID).First();
         }
+        public IEnumerable<Match> GetMatches4Players(int playerID, int rivalID)
+        {
+            return m_matchRepo.DataEnumerable()
+                .Where(match => (match.FirstPlayerID == playerID || match.SecondPlayerID == playerID) && (match.FirstPlayerID == rivalID || match.SecondPlayerID == rivalID))
+                .OrderByDescending(match => match.MatchDay.MatchDate);
+        }
         #endregion
                
         #region METHODS

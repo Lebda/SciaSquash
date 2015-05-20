@@ -21,10 +21,7 @@
             @Html.Label("Image", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div>
-                    @if (Model.ImageData != null)
-                    {
-                        <img width="150" height="150" src="@Url.Action("GetImage", "Player", new { id = Model.PlayerID })" />
-                    }
+                    @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = Model, Height = 150.0, Width = 150.0 })
                 </div>
             </div>
         </div>

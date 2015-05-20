@@ -1,0 +1,61 @@
+﻿@model SciaSquash.Web.ViewModels.Player.PlayerInfoViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">@Html.DisplayFor(model => model.Player.NickName)</div>
+    <div class="panel-body">
+
+        <div class="container">
+
+            <div class="row text-center">
+                <div class="col-md-3">
+                    @Html.Partial("PlayerAvatarPartial", new SciaSquash.Web.ViewModels.Shared.PlayerAvatarPartialViewModel { Player = Model.Player, Height = 150.0, Width = 150.0 })
+                </div>
+                <div class="col-md-3 text-left">
+                    <dl>
+                        <dt>
+                            <span class="label label-info">@Html.DisplayNameFor(model => model.Player.FirstName)</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Player.FirstName)
+                        </dd>
+                        <dt>
+                            <span class="label label-info">@Html.DisplayNameFor(model => model.Player.LastName)</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Player.LastName)
+                        </dd>
+                        <dt>
+                            <span class="label label-info">@Html.DisplayNameFor(model => model.Player.NickName)</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Player.NickName)
+                        </dd>
+                        <dt>
+                            <span class="label label-info">@Html.DisplayNameFor(model => model.Player.SpecialPower)</span>
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Player.SpecialPower)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-3 text-left">
+                    @Html.Action("TotalPlayerResultPartial", "Player", new { playerID = Model.Player.PlayerID })
+                </div>
+                <div class="col-md-3 text-left">
+                    <img width="150" height="150" src="~/Content/Images/SciaSquashLogo.png" />
+                </div>
+            </div>
+
+            @if (Model.ShowCRUDActions)
+            {
+                <div class="row">
+                    <div class="col-md-12">
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.Player.PlayerID }) |
+                        @Html.ActionLink("Details", "Details", new { playerID = Model.Player.PlayerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = Model.Player.PlayerID })
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

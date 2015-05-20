@@ -18,15 +18,16 @@
     <div class="col-md-4">
         <h2>Next Match day</h2>
         <hr />
+        @Html.Action("NextMatchDayPartial", "MatchDay")
     </div>
     <div class="col-md-4">
         <h2>Actual leader</h2>
         <hr />
-        @Html.Action("Leader", "Player")
+        @Html.Action("LeaderPartial", "Player")
     </div>
     <div class="col-md-4">
         <h2>Table</h2>
         <hr/>
-        @Html.Action("Ranking", "Player")
+        @Html.Action("RankingPartial", "Player")
     </div>
 </div>

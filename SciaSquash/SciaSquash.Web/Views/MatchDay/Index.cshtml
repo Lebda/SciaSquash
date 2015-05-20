@@ -19,48 +19,7 @@
             Games played in match day <br/>
             @Html.ActionLink("Create New match", "Create", "Match", new { matchDayID = item.MatchDayID }, null)
         </div>
-        <!-- Table -->
-        <table class="table table-bordered">
-            <tr>
-                <th>
-                    <h4>
-                        <span class="label label-primary"> First player </span>
-                    </h4>
-                </th>
-                <th>
-                    <h4>
-                        <span class="label label-primary"> Second player </span>
-                    </h4>
-                </th>
-                <th>
-                    <h4>
-                        <span class="label label-primary"> Score </span>
-                    </h4>
-                </th>
-                <th>
-                </th>
-            </tr>
-            @foreach (var oneMatch in item.Matches)
-            {
-                <tr>
-                    <td>
-                        <strong>@Html.DisplayFor(modelItem => oneMatch.FirstPlayer.NickName)</strong>
-                    </td>
-                    <td>
-                        <strong>@Html.DisplayFor(modelItem => oneMatch.SecondPlayer.NickName)</strong>
-                    </td>
-                    <td>
-                        <span class="badge">@Html.Encode(oneMatch.ScorePlayerFirst)</span>
-                        : <span class="badge">@Html.Encode(oneMatch.ScorePlayerSecond)</span>
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", "Match", new { id = oneMatch.MatchID }, null) |
-                        @Html.ActionLink("Details", "Details", "Match", new { id = oneMatch.MatchID }, null) |
-                        @Html.ActionLink("Delete", "Delete", "Match", new { id = oneMatch.MatchID }, null)
-                    </td>
-                </tr>
-            }
-        </table>
+        @Html.Partial("MatchIndexPartial", new SciaSquash.Web.ViewModels.Match.MatchIndexViewModel { Matches = item.Matches, ShowMatchDateColumn = false })
     </div>
 }
 
