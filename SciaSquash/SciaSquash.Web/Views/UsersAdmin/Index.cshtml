@@ -1,10 +1,13 @@
-﻿@model IEnumerable<SciaSquash.Web.Models.ApplicationUser>
+﻿@using IdenityHelp.Infrastrucutre;
+@using SciaSquash.Web.ViewModels.Shared;
+
+@model IEnumerable<SciaSquash.Web.ViewModels.Users.IndexUserViewModel>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Users registered in application</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -15,22 +18,30 @@
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-
+            Roles
         </th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.Partial("RoleSignsPartial", item.Role4User)
+                </td>
+                <td>
+                    @Html.Partial("CrudActionLinksPartial", new CrudActionLinksViewModel
+                    {
+                        Id = item.Id,
+                        ControllerName = "UsersAdmin",
+                        SeeEditCallBack = () => User.IsInRole(RoleNames.c_architectRoleName),
+                        SeeDetailedCallBack = () => User.IsInRole(RoleNames.c_architectRoleName) || User.IsInRole(RoleNames.c_adminRoleName),
+                        SeeDeleteCallBack = () => User.IsInRole(RoleNames.c_architectRoleName),
+                    })
+                </td>
+            </tr>
     }
 
 </table>

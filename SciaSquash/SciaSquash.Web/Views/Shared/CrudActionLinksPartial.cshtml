@@ -1,0 +1,22 @@
+﻿@model SciaSquash.Web.ViewModels.Shared.CrudActionLinksViewModel
+
+@if (Model.SeeEditCallBack())
+{
+    @Html.ActionLink("Edit", "Edit", @Model.ControllerName, new { id = @Model.Id }, null) 
+}
+@if (Model.SeeDetailedCallBack())
+{
+    if (Model.SeeEditCallBack())
+    {
+        @Html.Encode(" | ")
+    }
+    @Html.ActionLink("Details", "Details", @Model.ControllerName, new { id = @Model.Id }, null)
+} 
+@if (Model.SeeDeleteCallBack())
+{
+    if (Model.SeeDetailedCallBack())
+    {
+        @Html.Encode(" | ")
+    }
+    @Html.ActionLink("Delete", "Delete", @Model.ControllerName, new { id = @Model.Id }, null)
+}

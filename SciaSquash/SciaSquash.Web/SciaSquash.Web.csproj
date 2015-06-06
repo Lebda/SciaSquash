@@ -161,6 +161,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\ApplicationDbInitializer.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContentController.cs" />
+    <Compile Include="ViewModels\Shared\CrudActionLinksViewModel.cs" />
     <Compile Include="ViewModels\Users\EditUserViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="ViewModels\Player\RankingViewModel.cs" />
     <Compile Include="ViewModels\Player\RivalResultsViewModel.cs" />
     <Compile Include="ViewModels\Shared\PlayerAvatarPartialViewModel.cs" />
+    <Compile Include="ViewModels\Users\IndexUserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -298,6 +301,8 @@
     <Content Include="Views\UsersAdmin\Edit.cshtml" />
     <Content Include="Views\UsersAdmin\Delete.cshtml" />
     <Content Include="Views\UsersAdmin\Create.cshtml" />
+    <Content Include="Views\Shared\RoleSignsPartial.cshtml" />
+    <Content Include="Views\Shared\CrudActionLinksPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

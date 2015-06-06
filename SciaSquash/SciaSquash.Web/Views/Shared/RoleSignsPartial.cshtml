@@ -1,0 +1,17 @@
+﻿@model System.Collections.Generic.IEnumerable<string>
+
+@foreach (var role in Model)
+{
+    if (role == IdenityHelp.Infrastrucutre.RoleNames.c_architectRoleName)
+    {
+        <span class="label label-danger">@role</span>
+    }
+    else if (role == IdenityHelp.Infrastrucutre.RoleNames.c_adminRoleName)
+    {
+        <span class="label label-info">@role</span>
+    }
+    else if(true)
+    {
+        <span class="label label-success">@role</span> 
+    }
+}

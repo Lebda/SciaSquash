@@ -3,12 +3,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using IdenityHelp.Controllers;
+using IdenityHelp.Infrastrucutre;
 using IdenityHelp.ViewModels.Roles;
+using MVCHelp.Concrete;
 using SciaSquash.Web.Models;
 
 namespace SciaSquash.Web.Controllers
 {
-    //[Authorize(Roles = "Admin")]
+    [AuthorizeRoles(RoleNames.c_architectRoleName, RoleNames.c_adminRoleName)]
     public class RolesAdminController : RolesAdminControllerBase<ApplicationRoleManager, ApplicationRole, ApplicationUserManager, ApplicationUser, RoleViewModel>
     {
         public RolesAdminController(ApplicationUserManager userManager, ApplicationRoleManager roleManager)

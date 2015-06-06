@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using SciaSquash.Model.Infrastructure;
 using SciaSquash.Web.Infrastructure;
+using SciaSquash.Model.Infrastructure;
 
 namespace SciaSquash.Web
 {
@@ -13,7 +12,8 @@ namespace SciaSquash.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new SciaSquashDbInitializer());
+            var intializer = new SciaSquash.Model.Infrastructure.SciaSquashDbInitializer();
+            System.Data.Entity.Database.SetInitializer((System.Data.Entity.IDatabaseInitializer<SciaSquashContext>)intializer);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
