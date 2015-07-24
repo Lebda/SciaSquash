@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<JustCodeSettings Version="0.0" Timestamp="20dd826c-0ce9-4f98-b702-77695e1ad158">
+  <IgnoredErrorsAndWarningsSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <IgnoredErrorsAndWarnings Version="2">
+      <FilePath>
+        <FileRelativePath>SciaSquash.Web/Controllers/ManageController.cs</FileRelativePath>
+        <ProjectRelativePath>SciaSquash.Web/SciaSquash.Web.csproj</ProjectRelativePath>
+        <IgnoredElement>
+          <TextualIdentifier>10909112509890806709</TextualIdentifier>
+        </IgnoredElement>
+      </FilePath>
+      <FilePath>
+        <FileRelativePath>SciaSquash.Web/App_Start/IdentityConfig.cs</FileRelativePath>
+        <ProjectRelativePath>SciaSquash.Web/SciaSquash.Web.csproj</ProjectRelativePath>
+        <IgnoredElement>
+          <TextualIdentifier>9262352799773314970</TextualIdentifier>
+        </IgnoredElement>
+        <IgnoredElement>
+          <TextualIdentifier>9637854483128329658</TextualIdentifier>
+        </IgnoredElement>
+      </FilePath>
+      <FilePath>
+        <FileRelativePath>SciaSquash.Web/App_Start/ApplicationDbInitializer.cs</FileRelativePath>
+        <ProjectRelativePath>SciaSquash.Web/SciaSquash.Web.csproj</ProjectRelativePath>
+        <IgnoredElement>
+          <TextualIdentifier>12785648543456675686</TextualIdentifier>
+        </IgnoredElement>
+      </FilePath>
+    </IgnoredErrorsAndWarnings>
+  </IgnoredErrorsAndWarningsSettings>
+</JustCodeSettings>

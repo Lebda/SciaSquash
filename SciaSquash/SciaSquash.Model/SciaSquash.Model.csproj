@@ -67,15 +67,24 @@
     <Compile Include="Concrete\Resolver.cs" />
     <Compile Include="Concrete\ResultsCalculator.cs" />
     <Compile Include="Concrete\Score4Rival.cs" />
+    <Compile Include="DataContexts\SciaSquashMigrations\201507231437353_InitialCreate.cs" />
+    <Compile Include="DataContexts\SciaSquashMigrations\201507231437353_InitialCreate.Designer.cs">
+      <DependentUpon>201507231437353_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\SciaSquashMigrations\Configuration.cs" />
     <Compile Include="Entities\Match.cs" />
     <Compile Include="Entities\MatchDay.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Infrastructure\ModuleRegistrator.cs" />
-    <Compile Include="Infrastructure\SciaSquashContext.cs" />
+    <Compile Include="Infrastructure\SciaSquashDb.cs" />
     <Compile Include="Infrastructure\SciaSquashDbInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="DataContexts\SciaSquashMigrations\201507231437353_InitialCreate.resx">
+      <DependentUpon>201507231437353_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -85,6 +94,9 @@
       <Project>{373d9bee-a8ed-4761-9b89-735e5bb9b6df}</Project>
       <Name>EFHelp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataContexts\Scripts\150724_SqlQuery_update-database.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

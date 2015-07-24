@@ -1,4 +1,7 @@
-﻿@model SciaSquash.Web.Models.ApplicationUser
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Users;
+
+@model SciaSquash.Web.Models.ApplicationUser
 
 @{
     ViewBag.Title = "Details";
@@ -37,6 +40,5 @@
     }
 </table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("EditBackActionLinksEasyPartial", new UserEditBackActionLinkEasyViewModel(ViewBag.RoleNames, User, "UsersAdmin", "UsersAdmin", new { id = Model.Id }, null))
 </p>

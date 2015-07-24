@@ -9,7 +9,7 @@ namespace SciaSquash.Model.Concrete
 {
     public class MatchRepository : GenericRepository<Match>, IMatchRepository
     {
-        public MatchRepository(SciaSquashContext db)
+        public MatchRepository(SciaSquashDb db)
             : base(db)
         {
         }

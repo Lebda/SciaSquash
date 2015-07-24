@@ -1,5 +1,5 @@
-﻿@using IdenityHelp.Infrastrucutre;
-@using SciaSquash.Web.ViewModels.Shared;
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Users;
 
 @model IEnumerable<SciaSquash.Web.ViewModels.Users.IndexUserViewModel>
 
@@ -10,7 +10,7 @@
 <h2>Users registered in application</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.Partial("CreateActionLinkEasyPartial", new CreateUserActionLinkViewModel("Create new user", User, "UsersAdmin", null))
 </p>
 <table class="table">
     <tr>
@@ -32,14 +32,7 @@
                     @Html.Partial("RoleSignsPartial", item.Role4User)
                 </td>
                 <td>
-                    @Html.Partial("CrudActionLinksPartial", new CrudActionLinksViewModel
-                    {
-                        Id = item.Id,
-                        ControllerName = "UsersAdmin",
-                        SeeEditCallBack = () => User.IsInRole(RoleNames.c_architectRoleName),
-                        SeeDetailedCallBack = () => User.IsInRole(RoleNames.c_architectRoleName) || User.IsInRole(RoleNames.c_adminRoleName),
-                        SeeDeleteCallBack = () => User.IsInRole(RoleNames.c_architectRoleName),
-                    })
+                    @Html.Partial("CrudActionLinksEasyPartial", new UsersCrudActionLinksEasyViewModel(item.Role4User, User, "UsersAdmin", new { id = item.Id }))
                 </td>
             </tr>
     }

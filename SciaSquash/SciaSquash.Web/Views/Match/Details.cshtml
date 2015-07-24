@@ -1,4 +1,7 @@
-﻿@model SciaSquash.Model.Entities.Match
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Shared;
+
+@model SciaSquash.Model.Entities.Match
 
 @{
     ViewBag.Title = "Details";
@@ -40,6 +43,5 @@
     </div>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchID }) |
-    @Html.ActionLink("Back to match day", "Index", "MatchDay")
+    @Html.Partial("EditBackActionLinksEasyPartial", new EditBackActionLinksEasyViewModel(User, "Match", "MatchDay", new { id = Model.MatchID }, null))
 </p>

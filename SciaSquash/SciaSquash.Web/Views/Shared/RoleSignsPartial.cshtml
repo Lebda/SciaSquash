@@ -2,16 +2,24 @@
 
 @foreach (var role in Model)
 {
-    if (role == IdenityHelp.Infrastrucutre.RoleNames.c_architectRoleName)
+    if (role == IdenityHelp.Infrastructure.RoleNames.c_architectRoleName)
     {
-        <span class="label label-danger">@role</span>
+            <span class="label label-danger">@role</span>
     }
-    else if (role == IdenityHelp.Infrastrucutre.RoleNames.c_adminRoleName)
+    else if (role == IdenityHelp.Infrastructure.RoleNames.c_adminRoleName)
     {
-        <span class="label label-info">@role</span>
+            <span class="label label-danger">@role</span>
     }
-    else if(true)
+    else if (role == IdenityHelp.Infrastructure.RoleNames.c_dataMakerRoleName)
     {
-        <span class="label label-success">@role</span> 
+            <span class="label label-success">@role</span>
+    }
+    else if (role == IdenityHelp.Infrastructure.RoleNames.c_userRoleName)
+    {
+        <span class="label label-success">@role</span>
+    }
+    else if (true)
+    {
+        <span class="label label-warning">@role</span>
     }
 }

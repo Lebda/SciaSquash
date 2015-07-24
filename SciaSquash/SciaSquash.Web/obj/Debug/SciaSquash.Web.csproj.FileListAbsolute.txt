@@ -1,3 +1,4 @@
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Helpers.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.dll.config
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Web.pdb
@@ -24,7 +25,6 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Ninject.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Owin.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\SciaSquash.Model.dll
-C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Helpers.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Mvc.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Optimization.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\System.Web.Razor.dll
@@ -61,5 +61,7 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.csprojResolveAssemblyReference.cache
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.DataContexts.IdentityMigrations.InitialCreate.resources
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.csproj.GenerateResource.Cache
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Web\obj\Debug\SciaSquash.Web.pdb

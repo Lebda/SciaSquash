@@ -1,0 +1,32 @@
+﻿@using IdenityHelp.Infrastructure
+
+@model IdenityHelp.ViewModels.Roles.InvalidRoleModificationViewModel
+
+
+@{
+    ViewBag.Title = "Invalid role modification";
+}
+
+<h2>You are trying to do operation that is not allowed</h2>
+
+<h2>
+    <span class="label label-danger">@Model.Message</span>
+</h2>
+
+<h2>Following roles are can not be modified</h2>
+
+<h2>
+    <span class="label label-danger"></span>
+</h2>
+<h2>
+    <span class="label label-danger">@RoleNames.c_architectRoleName</span>
+</h2>
+<h2>
+    <span class="label label-danger">@RoleNames.c_adminRoleName</span>
+</h2>
+<h2>
+    <span class="label label-danger">@RoleNames.c_dataMakerRoleName</span>
+</h2>
+<h2>
+    <span class="label label-danger">@RoleNames.c_userRoleName</span>
+</h2>

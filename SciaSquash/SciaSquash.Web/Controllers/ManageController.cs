@@ -13,8 +13,8 @@ namespace SciaSquash.Web.Controllers
     [Authorize]
     public class ManageController : Controller
     {
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        private ApplicationSignInManager m_signInManager;
+        private ApplicationUserManager m_userManager;
 
         public ManageController()
         {
@@ -30,11 +30,11 @@ namespace SciaSquash.Web.Controllers
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return m_signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
             private set 
             { 
-                _signInManager = value; 
+                m_signInManager = value; 
             }
         }
 
@@ -42,11 +42,11 @@ namespace SciaSquash.Web.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return m_userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
-                _userManager = value;
+                m_userManager = value;
             }
         }
 
@@ -164,7 +164,7 @@ namespace SciaSquash.Web.Controllers
         // GET: /Manage/VerifyPhoneNumber
         public async Task<ActionResult> VerifyPhoneNumber(string phoneNumber)
         {
-            var code = await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
+            await UserManager.GenerateChangePhoneNumberTokenAsync(User.Identity.GetUserId(), phoneNumber);
             // Send an SMS through the SMS provider to verify the phone number
             return phoneNumber == null ? View("Error") : View(new VerifyPhoneNumberViewModel { PhoneNumber = phoneNumber });
         }
@@ -322,10 +322,10 @@ namespace SciaSquash.Web.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && _userManager != null)
+            if (disposing && m_userManager != null)
             {
-                _userManager.Dispose();
-                _userManager = null;
+                m_userManager.Dispose();
+                m_userManager = null;
             }
 
             base.Dispose(disposing);

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using EFHelp.Concrete.ControllerHelp;
+using IdenityHelp.Infrastructure.Atrributes;
 using SciaSquash.Model.Abstract;
 using SciaSquash.Model.Entities;
 
@@ -19,7 +20,7 @@ namespace SciaSquash.Web.Controllers
         #region MEMBERS
         private readonly IPlayerReposiroty m_playersRepo;
         #endregion
-
+        
         #region CRUD
         public ActionResult Index()
         {
@@ -29,6 +30,7 @@ namespace SciaSquash.Web.Controllers
         {
             return base.DetailsBase(id);
         }
+        [AuthorizeRoles4CreateAttribute]
         public ActionResult Create(int? matchDayID)
         {
             CallBack4DropDownListEmpty(null);
@@ -39,26 +41,32 @@ namespace SciaSquash.Web.Controllers
             Match viewModel = new Match { MatchDayID = (int)matchDayID };
             return View(viewModel);
         }
+        [AuthorizeRoles4CreateAttribute]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MatchDayID,FirstPlayerID,SecondPlayerID,ScorePlayerFirst,ScorePlayerSecond")] Match match)
+        public ActionResult Create([Bind(Include = "MatchDayID,FirstPlayerID,SecondPlayerID,ScorePlayerFirst,ScorePlayerSecond")]
+                                   Match match)
         {
             return base.CreateBase(match, CallBack4DropDownListEmpty, Redirect2Owner);
         }
+        [AuthorizeRoles4EditAttribute]
         public ActionResult Edit(int? id)
         {
             return base.EditBase(id, CallBack4DropDownList);
         }
+        [AuthorizeRoles4EditAttribute]
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public ActionResult EditPost(int? id)
         {
             return base.EditPostBase(id, CallBack4DropDownList, Redirect2Owner, null, "FirstPlayerID", "SecondPlayerID", "ScorePlayerFirst", "ScorePlayerSecond");
         }
+        [AuthorizeRoles4DeleteAttribute]
         public ActionResult Delete(int? id)
         {
             return DeleteBase(id);
         }
+        [AuthorizeRoles4DeleteAttribute]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -66,7 +74,7 @@ namespace SciaSquash.Web.Controllers
             return DeleteConfirmedBase(id, Redirect2Owner);
         }
         #endregion
-
+        
         #region PROTECTED
         protected override void Dispose(bool disposing)
         {
@@ -77,7 +85,7 @@ namespace SciaSquash.Web.Controllers
             base.Dispose(disposing);
         }
         #endregion
-
+        
         #region METHODS
         private void PopulatePlayersDropDownLists(object selectedPlayerIDFirst = null, object selectedPlayerIDSecond = null)
         {

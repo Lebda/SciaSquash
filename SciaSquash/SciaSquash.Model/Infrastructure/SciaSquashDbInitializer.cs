@@ -5,9 +5,9 @@ using SciaSquash.Model.Entities;
 
 namespace SciaSquash.Model.Infrastructure
 {
-    public class SciaSquashDbInitializer : DropCreateDatabaseIfModelChanges<SciaSquashContext> //DropCreateDatabaseAlways DropCreateDatabaseIfModelChanges
+    public class SciaSquashDbInitializer : CreateDatabaseIfNotExists<SciaSquashDb> //DropCreateDatabaseAlways DropCreateDatabaseIfModelChanges
     {
-        protected override void Seed(SciaSquashContext context)
+        protected override void Seed(SciaSquashDb context)
         {
             var radim = new Player { FirstName = "Radim", LastName = "Matela", NickName = "Prdelnik", SpecialPower = "Always be late" };
             context.Players.Add(radim);
@@ -35,7 +35,7 @@ namespace SciaSquash.Model.Infrastructure
             context.SaveChanges();  
             // base.Seed(context);
         }
-        private void AddMatches4MatchDay(Player radim, Player mirek, Player lebda, Player rybizek, MatchDay matchDay, SciaSquashContext context)
+        private void AddMatches4MatchDay(Player radim, Player mirek, Player lebda, Player rybizek, MatchDay matchDay, SciaSquashDb context)
         {
             Random rnd = new Random();
             int min = 1;

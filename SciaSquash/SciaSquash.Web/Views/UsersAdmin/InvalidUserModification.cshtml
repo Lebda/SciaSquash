@@ -1,0 +1,20 @@
+﻿@using IdenityHelp.Infrastructure
+
+@model IdenityHelp.ViewModels.Users.InvalidUserModificationViewModel
+
+
+@{
+    ViewBag.Title = "Invalid user modification";
+}
+
+<h2>You are trying to do operation that is not allowed</h2>
+
+<h2>
+    <span class="label label-danger">@Model.Message</span>
+</h2>
+
+<h2>
+    <span class="label label-danger">
+        @Html.Encode("User in " + @RoleNames.c_architectRoleName + " can not be modificated ! ")
+    </span>
+</h2>

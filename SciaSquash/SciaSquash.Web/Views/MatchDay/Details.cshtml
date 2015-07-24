@@ -13,17 +13,7 @@
         <tr>
             <th>Name</th>
         </tr>
-        @foreach (var item in Model.Matches)
-        {
-            <tr>
-                <td>
-                   @* @Html.DisplayFor(modelItem => item.Player.NickName)*@
-                </td>
-            </tr>
-        }
     </table>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MatchDayID }) |
-    @Html.ActionLink("Back to List", "Index")
 </p>

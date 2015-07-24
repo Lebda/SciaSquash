@@ -33,7 +33,7 @@ namespace SciaSquash.Model.Concrete
         #region INTERFACE
         public IPlayerResult Leader 
         { 
-            get { return Items.First(); }
+            get { return Items.FirstOrDefault(); }
         }
         public ICollection<IPlayerResult> Items { get; set; }
         public IPlayerResult GetResults4PlayerID(int playerID)

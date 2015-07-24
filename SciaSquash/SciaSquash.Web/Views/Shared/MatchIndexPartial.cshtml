@@ -1,4 +1,7 @@
-﻿@model SciaSquash.Web.ViewModels.Match.MatchIndexViewModel
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Shared;
+
+@model SciaSquash.Web.ViewModels.Match.MatchIndexViewModel
 
 
 <!-- Table -->
@@ -52,9 +55,7 @@
                     </th>
                 }
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "Match", new { id = oneMatch.MatchID }, null) |
-                    @Html.ActionLink("Details", "Details", "Match", new { id = oneMatch.MatchID }, null) |
-                    @Html.ActionLink("Delete", "Delete", "Match", new { id = oneMatch.MatchID }, null)
+                    @Html.Partial("CrudActionLinksEasyPartial", new CrudActionLinksEasyViewModel(User, "Match", new { id = oneMatch.MatchID }))                  
                 </td>
             </tr>
     }

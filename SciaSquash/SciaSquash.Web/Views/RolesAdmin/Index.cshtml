@@ -1,6 +1,7 @@
 ﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Roles;
 
-@model System.Collections.Generic.IEnumerable<IdenityHelp.ViewModels.Roles.RoleViewModel>
+@model IEnumerable<IdenityHelp.ViewModels.Roles.RoleViewModel>
 
 @{
     ViewBag.Title = "Roles";
@@ -9,7 +10,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.Partial("CreateActionLinkEasyPartial", new CreateRoleActionLinkViewModel("Create new role", User, "RolesAdmin", null))
 </p>
 
 <table class="table">
@@ -28,15 +29,13 @@
     {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Name)
+                    @Html.Partial("RoleSignsPartial", new List<string>() { item.Name })
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.Partial("CrudActionLinksEasyPartial", new RolesCrudActionLinksEasyViewModel(item.Name, User, "RolesAdmin", new { id = item.Id }))
                 </td>
             </tr>
     }

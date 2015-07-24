@@ -1,4 +1,7 @@
-﻿@model IEnumerable<SciaSquash.Model.Entities.MatchDay>
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Shared;
+
+@model IEnumerable<SciaSquash.Model.Entities.MatchDay>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +10,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New match day", "Create")
+    @Html.Partial("CreateActionLinkEasyPartial", new CreateActionLinkEasyViewModel("Create match day", User, "MatchDay", null))
 </p>
 
 @foreach (var item in Model)
@@ -17,7 +20,9 @@
         <div class="panel-heading">@Html.DisplayNameFor(model => model.MatchDate) @Html.DisplayFor(modelItem => item.MatchDate)</div>
         <div class="panel-body">
             Games played in match day <br/>
-            @Html.ActionLink("Create New match", "Create", "Match", new { matchDayID = item.MatchDayID }, null)
+            <p>
+                @Html.Partial("CreateActionLinkEasyPartial", new CreateActionLinkEasyViewModel("Create match", User, "Match", new { matchDayID = item.MatchDayID }))
+            </p>
         </div>
         @Html.Partial("MatchIndexPartial", new SciaSquash.Web.ViewModels.Match.MatchIndexViewModel { Matches = item.Matches, ShowMatchDateColumn = false })
     </div>

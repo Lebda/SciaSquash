@@ -9,7 +9,7 @@ namespace SciaSquash.Model.Concrete
 {
     public class PlayerReposiroty : GenericRepository<Player>, IPlayerReposiroty
     {
-        public PlayerReposiroty(SciaSquashContext db)
+        public PlayerReposiroty(SciaSquashDb db)
             : base(db)
         {
         }

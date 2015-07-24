@@ -1,4 +1,7 @@
-﻿@model IdenityHelp.ViewModels.Roles.RoleViewModel
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Roles;
+
+@model IdenityHelp.ViewModels.Roles.RoleViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -37,9 +40,6 @@
     }
 </table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("EditBackActionLinksEasyPartial", new RoleEditBackActionLinkEasyViewModel(Model.Name, User, "RolesAdmin", "RolesAdmin", new { id = Model.Id }, null))
 </p>
-
-
 

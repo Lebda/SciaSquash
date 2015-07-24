@@ -1,4 +1,6 @@
-﻿@model SciaSquash.Web.ViewModels.Player.PlayerDetailsViewModel
+﻿@using IdenityHelp.ViewModels.Shared;
+
+@model SciaSquash.Web.ViewModels.Player.PlayerDetailsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -6,17 +8,16 @@
 
 <div>
     <hr />
-    @Html.Action("PlayerInfoPartial", "Player", new { playerID = Model.Player.PlayerID, showCRUDActions = false })
-
+    @Html.Action("PlayerInfoPartial", "Player", new { id = Model.Player.PlayerID, showCRUDActions = false })
+    
     <hr />
-    @Html.Action("RivalResultsPartial", "Player", new { playerID = Model.Player.PlayerID, rivalID = Model.RivalID })
-
+    @Html.Action("RivalResultsPartial", "Player", new { id = Model.Player.PlayerID, rivalID = Model.RivalID })
+    
     <hr />
-    @Html.Action("RivalMatchesPartial", "Player", new { playerID = Model.Player.PlayerID, rivalID = Model.RivalID })
+    @Html.Action("RivalMatchesPartial", "Player", new { id = Model.Player.PlayerID, rivalID = Model.RivalID })
 
 </div>
 
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Player.PlayerID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.Partial("EditBackActionLinksEasyPartial", new EditBackActionLinksEasyViewModel(User, "Player", "Player", new { id = Model.Player.PlayerID }, null))
 </p>

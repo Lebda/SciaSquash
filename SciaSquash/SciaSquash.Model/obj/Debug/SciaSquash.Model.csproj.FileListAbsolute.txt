@@ -12,5 +12,7 @@ C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\S
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\bin\Debug\Ninject.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\bin\Debug\System.Web.Mvc.xml
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\obj\Debug\SciaSquash.Model.csprojResolveAssemblyReference.cache
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\obj\Debug\SciaSquash.Model.DataContexts.SciaSquashMigrations.InitialCreate.resources
+C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\obj\Debug\SciaSquash.Model.csproj.GenerateResource.Cache
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\obj\Debug\SciaSquash.Model.dll
 C:\Users\jlebduska\Documents\Visual Studio 2013\Projects\SciaSquash\SciaSquash\SciaSquash.Model\obj\Debug\SciaSquash.Model.pdb

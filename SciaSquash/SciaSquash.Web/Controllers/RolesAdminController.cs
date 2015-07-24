@@ -3,9 +3,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using IdenityHelp.Controllers;
-using IdenityHelp.Infrastrucutre;
+using IdenityHelp.Infrastructure;
+using IdenityHelp.Infrastructure.Atrributes;
 using IdenityHelp.ViewModels.Roles;
-using MVCHelp.Concrete;
 using SciaSquash.Web.Models;
 
 namespace SciaSquash.Web.Controllers
@@ -55,13 +55,16 @@ namespace SciaSquash.Web.Controllers
         }
         public Task<ActionResult> Edit(string id)
         {
-            return base.EditBase(id);
+            return base.EditBase(id, (message) => View("InvalidRoleModification", new InvalidRoleModificationViewModel { Message = message }));
         }
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public Task<ActionResult> EditPost(string id)
         {
-            return base.EditPostBase(id, null, "Name", "Id", "Description");
+            return base.EditPostBase(
+                id, 
+                (message) => View("InvalidRoleModification", new InvalidRoleModificationViewModel { Message = message }),
+                null, "Name", "Id", "Description");
         }
         public ActionResult Create()
         {
@@ -75,13 +78,13 @@ namespace SciaSquash.Web.Controllers
         }
         public Task<ActionResult> Delete(string id)
         {
-            return base.DeleteBase(id);
+            return base.DeleteBase(id, (message) => View("InvalidRoleModification", new InvalidRoleModificationViewModel { Message = message }));
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public Task<ActionResult> DeleteConfirmed(string id)
         {
-            return base.DeleteConfirmedBase(id);
+            return base.DeleteConfirmedBase(id, (message) => View("InvalidRoleModification", new InvalidRoleModificationViewModel { Message = message }));
         }
         #endregion
 

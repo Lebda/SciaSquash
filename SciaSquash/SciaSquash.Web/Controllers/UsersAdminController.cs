@@ -4,8 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using IdenityHelp.Controllers;
-using IdenityHelp.Infrastrucutre;
-using MVCHelp.Concrete;
+using IdenityHelp.Infrastructure;
+using IdenityHelp.Infrastructure.Atrributes;
+using IdenityHelp.ViewModels.Users;
 using SciaSquash.Web.Models;
 using SciaSquash.Web.ViewModels.Users;
 
@@ -71,41 +72,45 @@ namespace SciaSquash.Web.Controllers
         {
             return base.DetailsBase(id);
         }
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
         public Task<ActionResult> Edit(string id)
         {
-            return base.EditBase(id, UpdateAndCreateViewModel);
+            return base.EditBase(
+                id,
+                (message) => View("InvalidUserModification", new InvalidUserModificationViewModel { Message = message }),
+                UpdateAndCreateViewModel);
         }
         [HttpPost, ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
         public Task<ActionResult> EditPost(string id, params string[] selectedRole)
         {
-            return base.EditPostBase<EditUserViewModel>(id, UpdateModel, ()=> new EditUserViewModel(), selectedRole, null, "Email", "Id");
+            return base.EditPostBase<EditUserViewModel>(
+                id,
+                (message) => View("InvalidUserModification", new InvalidUserModificationViewModel { Message = message }),
+                UpdateModel, () => new EditUserViewModel(),
+                selectedRole,
+                null,
+                "Email", "Id");
         }
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
         public Task<ActionResult> Create()
         {
             return base.CreateBase();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
-        public Task<ActionResult> Create([Bind(Include = "Email, Password, ConfirmPassword")] RegisterViewModel viewModel, params string[] selectedRoles)
+        public Task<ActionResult> Create([Bind(Include = "Email, Password, ConfirmPassword")]
+                                         RegisterViewModel viewModel, params string[] selectedRoles)
         {
             return base.CreateBase(viewModel, viewModel.Password, UpdateAndCreateModel, selectedRoles, null);
         }
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
         public Task<ActionResult> Delete(string id)
         {
-            return base.DeleteBase(id);
+            return base.DeleteBase(id, (message) => View("InvalidUserModification", new InvalidUserModificationViewModel { Message = message }));
         }
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        [AuthorizeRoles(RoleNames.c_architectRoleName)]
         public Task<ActionResult> DeleteConfirmed(string id)
         {
-            return base.DeleteConfirmedBase(id);
+            return base.DeleteConfirmedBase(id, (message) => View("InvalidUserModification", new InvalidUserModificationViewModel { Message = message }));
         }
         #endregion
     }

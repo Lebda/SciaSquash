@@ -1,4 +1,7 @@
-﻿@model IEnumerable<SciaSquash.Model.Entities.Player>
+﻿@using System.Web.Mvc.Html;
+@using IdenityHelp.ViewModels.Shared;
+
+@model IEnumerable<SciaSquash.Model.Entities.Player>
 
 @{
     ViewBag.Title = "Index";
@@ -7,11 +10,11 @@
 <h2>Players</h2>
 
 <p>
-    @Html.ActionLink("Create New player", "Create")
+    @Html.Partial("CreateActionLinkEasyPartial", new CreateActionLinkEasyViewModel("Create player", User, "Player", null))
 </p>
 
 @foreach (var item in Model)
 {
     <hr />
-    @Html.Action("PlayerInfoPartial", "Player", new { playerID = item.PlayerID, showCRUDActions = true })
+    @Html.Action("PlayerInfoPartial", "Player", new { id = item.PlayerID, showCRUDActions = true })
 }
